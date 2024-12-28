@@ -81,21 +81,6 @@ class TransactionService:
         # Create a transaction record
         transaction_id = await self.create_transaction_record(account_id, amount, operation, transaction_type, session)
 
-        # # Now update the account balance in the database (MongoDB)
-        # result = await self.db.accounts.find_one_and_update(
-        #     {"_id": account_id},
-        #     {"$set": {"balance": new_balance}},
-        #     session=session,
-        #     return_document=ReturnDocument.AFTER
-        # )
-
-        # # If the account doesn't exist or update fails, raise an error
-        # if not result:
-        #     raise HTTPException(
-        #         status_code=status.HTTP_400_BAD_REQUEST,
-        #         detail=f"Account not found or unable to update balance for account ID: {account_id}"
-        #     )
-
         # Update the transaction document with the final status (COMPLETED)
         await self.db.transactions.update_one(
             {"_id": transaction_id},

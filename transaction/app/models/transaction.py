@@ -1,3 +1,4 @@
+import uuid
 from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
@@ -17,12 +18,12 @@ class TransactionType(str, Enum):
 class TransactionBase(BaseModel):
     amount: float = Field(..., gt=0)
     transaction_type: TransactionType
-    from_account: str
-    to_account: Optional[str] = None
+    from_account: uuid.UUID
+    to_account: Optional[uuid.UUID] = None
     description: Optional[str] = None
 
 class TransactionResponse(TransactionBase):
-    transaction_id: str
+    transaction_id: uuid.UUID
     status: TransactionStatus
     created_at: datetime
     updated_at: datetime

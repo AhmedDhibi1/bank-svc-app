@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "INFO"
     APP_NAME: str = "banking-transaction-service"
     APP_VERSION: str = "1.0.0"
-    API_V1_STR: str = "/api/v1"
+    API_V1_STR: str = ""
 
     class Config:
         env_file = ".env"
