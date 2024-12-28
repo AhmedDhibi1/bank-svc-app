@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/accountService
-    username: postgres
+    customername: postgres
     password: password
 
   jpa:
@@ -15,7 +15,6 @@ spring:
     name: ACCOUNT-SERVICE
   config:
     import: optional:configserver:http://localhost:8085
-
 #eureka:
 #  instance:
 #    prefer-ip-address: true
@@ -24,6 +23,4 @@ spring:
 #    register-with-eureka: true
 #    service-url:
 #      defaultZone : http://localhost:8761/eureka
-
-
 

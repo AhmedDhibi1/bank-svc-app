@@ -34,7 +34,7 @@ public class AccountController {
 
     // Get Accounts using Customer ID
 
-    @GetMapping("/user/{customerId}")
+    @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<Account>> getAccountsUsingCustomerID(@PathVariable String customerId)
     {
         return ResponseEntity.ok(accountService.getAccountByCustomerId(customerId));
@@ -82,11 +82,11 @@ public class AccountController {
 
     // Delete Account using customerId
 
-    @DeleteMapping("user/{customerId}")
-    public ApiResponse deleteAccountByUserId(@PathVariable String customerId)
+    @DeleteMapping("customer/{customerId}")
+    public ApiResponse deleteAccountByCustomerId(@PathVariable String customerId)
     {
         this.accountService.deleteAccountUsingCustomerId(customerId);
-        return new ApiResponse(" Accounts with given userId is deleted Successfully", true);
+        return new ApiResponse(" Accounts with given customerId is deleted Successfully", true);
 
     }
 
