@@ -15,7 +15,7 @@ class TransactionType(str, Enum):
     TRANSFER = "TRANSFER"
 
 class TransactionBase(BaseModel):
-    amount: Decimal = Field(..., gt=0)
+    amount: float = Field(..., gt=0)
     transaction_type: TransactionType
     from_account: str
     to_account: Optional[str] = None

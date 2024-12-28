@@ -1,12 +1,26 @@
 from fastapi import HTTPException, status
+import httpx
 from pymongo import ReturnDocument
-from ..models.transaction import TransactionStatus
+from models.transaction import TransactionStatus
 from decimal import Decimal
 from typing import Optional
 
 class TransactionService:
     def __init__(self, db):
         self.db = db
+    
+    
+
+    async def get_account_balance(account_id: str):
+        ACCOUNT_SERVICE_URL = "http://account-service.local:8001/accounts/"
+       
+        async with httpx.AsyncClient() as client:
+            response = await client.get(f"{ACCOUNT_SERVICE_URL}{account_id}")
+            
+            if response.status_code == 200:
+                return response.json()  
+            else:
+                raise HTTPException(status_code=response.status_code, detail="Account not found")
 
     async def update_account_balance(
         self, 
@@ -15,6 +29,8 @@ class TransactionService:
         operation: str,
         session: Optional[any] = None
     ):
+        #source_account = await self.get_account_balance(account_id)
+        print (source_account)
         modifier = 1 if operation == "credit" else -1
         result = await self.db.accounts.find_one_and_update(
             {"_id": account_id, "balance": {"$gte": -amount if operation == "debit" else 0}},

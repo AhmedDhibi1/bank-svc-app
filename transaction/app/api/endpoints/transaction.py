@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from ...db.mongodb import db
-from ...models.transaction import TransactionBase, TransactionResponse, TransactionStatus
-from ...services.transaction import TransactionService
+from db.mongodb import db
+from models.transaction import TransactionBase, TransactionResponse, TransactionStatus
+from services.transaction import TransactionService
 from typing import List
 from datetime import datetime
 import uuid
