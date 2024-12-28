@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface AccountRepository extends JpaRepository<Account,String> {
 
-    //Find accounts using customerId
+    //Find accounts using userId
     List<Account> findByCustomerId(String customerId);
 
 }
