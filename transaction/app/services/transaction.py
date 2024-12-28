@@ -11,7 +11,7 @@ class TransactionService:
         self.db = db
         self.logger = logging.getLogger(__name__)
 
-    async def get_account_balance(self, account_id: str):
+    async def get_account(self, account_id: str):
         ACCOUNT_SERVICE_URL = "http://localhost:8083/account"
         url = f"{ACCOUNT_SERVICE_URL}/{account_id}"
         async with httpx.AsyncClient() as client:
@@ -23,7 +23,23 @@ class TransactionService:
                     raise HTTPException(status_code=500, detail="Invalid JSON response from account service")
             else:
                 raise HTTPException(status_code=response.status_code, detail="Account not found")
+    async def update_account(self, account_id: str, account_data: dict):
+    
+        ACCOUNT_SERVICE_URL = "http://localhost:8083/account"
+        url = f"{ACCOUNT_SERVICE_URL}/{account_id}"
 
+        async with httpx.AsyncClient() as client:
+            response = await client.put(url, json=account_data)
+
+            if response.status_code == 200:
+                try:
+                    return response.json()  # Returns the updated account details
+                except ValueError:
+                    raise HTTPException(status_code=500, detail="Invalid JSON response from account service")
+            elif response.status_code == 404:
+                raise HTTPException(status_code=404, detail="Account not found")
+            else:
+                raise HTTPException(status_code=response.status_code, detail="Failed to update account")
     async def create_transaction_record(self, account_id: str, amount: Decimal, operation: str, transaction_type: str, session: Optional[any] = None):
         # Prepare the transaction document
         transaction_doc = {
@@ -47,8 +63,8 @@ class TransactionService:
 
     async def update_account_balance(self, account_id: str, amount: Decimal, operation: str, transaction_type: str, session: Optional[any] = None):
         # Fetch the current balance from the account service
-        current_balance = await self.get_account_balance(account_id)
-        
+        account = await self.get_account(account_id)
+        current_balance= account["balance"]
         # Calculate the modifier based on the operation (credit or debit)
         modifier = 1 if operation == "credit" else -1
         new_balance = current_balance + (amount * modifier)
@@ -59,7 +75,9 @@ class TransactionService:
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail=f"Insufficient funds in account ID: {account_id} for debit operation"
             )
-
+        account["balance"] = new_balance
+        # Update the account balance in the account service
+        await self.update_account(account_id, account)
         # Create a transaction record
         transaction_id = await self.create_transaction_record(account_id, amount, operation, transaction_type, session)
 
