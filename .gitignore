@@ -1,1 +1,6 @@
 transaction/venv
+*/node_modules
+*/.vscode
+*/.idea
+*/__pycache__/
+*/*/__pycache__/
