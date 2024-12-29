@@ -1,6 +1,6 @@
-import os
-from pymongo import MongoClient
-from dotenv import load_dotenv
+# app/db/mongodb.py
+from motor.motor_asyncio import AsyncIOMotorClient
+from core.config import settings
 
 # Load environment variables from .env file
 load_dotenv()

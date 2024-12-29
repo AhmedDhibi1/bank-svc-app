@@ -1,5 +1,7 @@
 from fastapi import FastAPI
-from app.routes import transaction, account
+from core.config import settings
+from db.mongodb import db
+from api.endpoints import transaction
 
 app = FastAPI()
 
