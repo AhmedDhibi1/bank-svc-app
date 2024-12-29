@@ -3,3 +3,4 @@ pymongo
 httpx
 uvicorn
 python-dotenv
+dapr

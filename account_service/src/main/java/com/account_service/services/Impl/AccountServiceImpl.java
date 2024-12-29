@@ -46,7 +46,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account getAccount(String id) {
+    public Account getAccount(UUID id) {
 
         // Getting Accounts from ACCOUNT SERVICE
 
@@ -55,14 +55,14 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Account> getAccountByCustomerId(String customerId) {
+    public List<Account> getAccountByCustomerId(UUID customerId) {
 
         return accountRepository.findByCustomerId(customerId);
     }
 
 
     @Override
-    public Account updateAccount(String id, Account account) {
+    public Account updateAccount(UUID id, Account account) {
         Account newAccount = accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found  try again with correct details!!"));newAccount.setAccountType(account.getAccountType());
         if(newAccount.getCustomerId()==account.getCustomerId()) {
             newAccount.setLastActivity(new Date());
@@ -72,7 +72,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(UUID id) {
 
         Account account = accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found !!"));
         this.accountRepository.delete(account);
@@ -80,7 +80,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void deleteAccountUsingCustomerId(String customerId) {
+    public void deleteAccountUsingCustomerId(UUID customerId) {
 
         List<Account> accounts = accountRepository.findByCustomerId(customerId);
 

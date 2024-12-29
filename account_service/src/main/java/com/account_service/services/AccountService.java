@@ -3,6 +3,7 @@ package com.account_service.services;
 import com.account_service.entity.Account;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface AccountService {
 
@@ -16,19 +17,19 @@ public interface AccountService {
 
     //get single account
 
-    Account getAccount(String id);
+    Account getAccount(UUID id);
 
     //get single account using customerId
 
-    List<Account> getAccountByCustomerId(String customerId);
+    List<Account> getAccountByCustomerId(UUID customerId);
 
     //update Account
-    Account updateAccount(String id, Account account);
+    Account updateAccount(UUID id, Account account);
 
     //delete
 
-    void delete(String id);
+    void delete(UUID id);
 
-    void deleteAccountUsingCustomerId(String customerId);
+    void deleteAccountUsingCustomerId(UUID customerId);
 
 }
