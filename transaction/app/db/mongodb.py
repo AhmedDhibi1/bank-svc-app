@@ -1,30 +1,18 @@
-# app/db/mongodb.py
-from motor.motor_asyncio import AsyncIOMotorClient
-from ..core.config import settings
+import os
+from pymongo import MongoClient
+from dotenv import load_dotenv
 
-class Database:
-    client: AsyncIOMotorClient = None
-    
-    def __init__(self):
-        self.client = None
-        self.db = None
+# Load environment variables from .env file
+load_dotenv()
 
-    async def connect(self):
-        try:
-            self.client = AsyncIOMotorClient(
-                settings.MONGO_URI,
-                maxPoolSize=settings.MONGODB_MAX_POOL_SIZE,
-                minPoolSize=settings.MONGODB_MIN_POOL_SIZE,
-                serverSelectionTimeoutMS=settings.MONGODB_TIMEOUT_MS
-            )
-            self.db = self.client.banking_db
-            print("Connected to MongoDB!")
-        except Exception as e:
-            print(f"Could not connect to MongoDB: {e}")
+# Read MONGO_URI from environment
+MONGO_URI = os.getenv("MONGO_URI")
 
-    async def disconnect(self):
-        if self.client:
-            self.client.close()
-            print("Disconnected from MongoDB!")
+# Initialize MongoDB client
+client = MongoClient(MONGO_URI)
 
-db = Database()
+# Get the default database specified in the URI
+db = client.get_database()
+
+# Access a collection
+transactions_collection = db["transactions"]
