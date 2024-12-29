@@ -3,10 +3,11 @@ const sequelize = require("../config/db_config");
 
 const Customer = sequelize.define("customer", {
   id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.UUID,
     primaryKey: true,
-    autoIncrement: true,
+    defaultValue: DataTypes.UUIDV4,
   },
+
   name: {
     type: DataTypes.STRING,
     allowNull: false,

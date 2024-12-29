@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -19,7 +20,7 @@ import java.util.Date;
 public class Account {
 
     @Id
-    private String accountId;
+    private UUID accountId;
 
     private String accountType;
 
@@ -30,11 +31,6 @@ public class Account {
     Date lastActivity;
     private int balance;
 
-    private String customerId;
-
-    @Transient
-    Customer customer;
-
-
+    private UUID customerId;
 
 }
