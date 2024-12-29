@@ -28,15 +28,15 @@ public class AccountServiceImpl implements AccountService {
     private AccountRepository accountRepository;
     @Override
     public Account create(Account account) {
-        String accountId = UUID.randomUUID().toString();
+        Customer customer = restTemplate.getForObject("http://localhost:8081/customers/" + account.getCustomerId(), Customer.class);
+        if(customer == null) {
+            throw new Error("No customer with this ID");
+        }
+        UUID accountId = UUID.randomUUID();
         account.setAccountId(accountId);
-
-
         Date current_Date = new Date();
-
         account.setAccountOpeningDate(current_Date);
         account.setLastActivity(current_Date);
-
         return accountRepository.save(account);
     }
 
@@ -50,83 +50,26 @@ public class AccountServiceImpl implements AccountService {
 
         // Getting Accounts from ACCOUNT SERVICE
 
-
-            Account account = accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found try again with correct details !!"));
-
-            // Getting customers from USER SERVICE
-
-
-            Customer customer = restTemplate.getForObject("http://CUSTOMER-SERVICE/customer/" + account.getCustomerId(), Customer.class);
-
-
-            account.setCustomer(customer);
-
-            return account;
-
-
+        return accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found try again with correct details !!"));
 
     }
 
     @Override
     public List<Account> getAccountByCustomerId(String customerId) {
+
         return accountRepository.findByCustomerId(customerId);
     }
 
 
     @Override
     public Account updateAccount(String id, Account account) {
-
-        Account newAccount = accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found  try again with correct details!!"));
-        newAccount.setAccountType(account.getAccountType());
-        newAccount.setLastActivity(new Date());
-        return accountRepository.save(newAccount);
+        Account newAccount = accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found  try again with correct details!!"));newAccount.setAccountType(account.getAccountType());
+        if(newAccount.getCustomerId()==account.getCustomerId()) {
+            newAccount.setLastActivity(new Date());
+            return accountRepository.save(account);
+        }
+        return null;
     }
-
-    @Override
-    public Account addBalance(String id, int amount, String customerId) {
-
-
-            Account newAccount = accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found try again with correct details !!"));
-
-            Customer customer = restTemplate.getForObject("http://CUSTOMER-SERVICE/customer/" + customerId, Customer.class);
-
-            if (customer == null) {
-
-                throw new ResourceNotFoundException("Customer with given id not found try again with correct details !!");
-            } else {
-
-                int newBalance = newAccount.getBalance() + amount;
-                newAccount.setBalance(newBalance);
-                newAccount.setLastActivity(new Date());
-
-                return accountRepository.save(newAccount);
-            }
-
-
-    }
-
-    @Override
-    public Account withdrawBalance(String id, int amount, String customerId) {
-
-
-            Account newAccount = accountRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Account with given id not found try again with correct details !!"));
-
-            Customer customer = restTemplate.getForObject("http://CUSTOMER-SERVICE/customer/" + customerId, Customer.class);
-
-            if (customer == null) {
-                throw new ResourceNotFoundException("Customer with given id not found try again with correct details !!");
-            } else {
-
-                int newBalance = newAccount.getBalance() - amount;
-                newAccount.setBalance(newBalance);
-                newAccount.setLastActivity(new Date());
-                return accountRepository.save(newAccount);
-            }
-
-
-
-    }
-
 
     @Override
     public void delete(String id) {
@@ -146,9 +89,6 @@ public class AccountServiceImpl implements AccountService {
             this.accountRepository.delete(account);
         }
 
-
-
     }
-
 
 }

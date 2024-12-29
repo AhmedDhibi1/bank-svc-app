@@ -29,6 +29,7 @@ public class AccountController {
     @GetMapping("/{accountId}")
     public ResponseEntity<Account> getAccount(@PathVariable String accountId)
     {
+        System.out.println(accountId);
         return ResponseEntity.status(HttpStatus.OK).body(accountService.getAccount(accountId));
     }
 
@@ -52,23 +53,8 @@ public class AccountController {
 
     @PutMapping("/{accountID}")
     public ResponseEntity<Account> updateAccount(@RequestBody Account account, @PathVariable String accountID){
-
+        System.out.println(account.getBalance());
         return ResponseEntity.status(HttpStatus.OK).body(accountService.updateAccount(accountID,account));
-    }
-
-    // Add Money
-    @PutMapping("/addmoney/{accountID}")
-    public ResponseEntity<Account> addMoney(@PathVariable String accountID,@RequestParam int amount,  @RequestParam String customerId)
-    {
-        return ResponseEntity.status(HttpStatus.OK).body(accountService.addBalance(accountID,amount, customerId));
-    }
-
-
-    // withdraw Money
-    @PutMapping("/withdraw/{accountID}")
-    public ResponseEntity<Account> withdraw(@PathVariable String accountID,@RequestParam int amount, @RequestParam String customerId)
-    {
-        return ResponseEntity.status(HttpStatus.OK).body(accountService.withdrawBalance(accountID,amount, customerId));
     }
 
     // Delete Account
@@ -76,6 +62,7 @@ public class AccountController {
     @DeleteMapping("/{accountId}")
     public ApiResponse deleteAccount(@PathVariable String accountId)
     {
+
         this.accountService.delete(accountId);
         return new ApiResponse("Account is Successfully Deleted", true);
     }

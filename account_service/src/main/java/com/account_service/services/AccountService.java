@@ -23,13 +23,7 @@ public interface AccountService {
     List<Account> getAccountByCustomerId(String customerId);
 
     //update Account
-
     Account updateAccount(String id, Account account);
-
-    //update Balance
-
-    Account addBalance(String id, int amount, String customerId);
-    Account withdrawBalance(String id, int amount, String customerId);
 
     //delete
 
