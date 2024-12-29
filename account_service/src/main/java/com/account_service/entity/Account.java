@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -31,10 +32,5 @@ public class Account {
     private int balance;
 
     private String customerId;
-
-    @Transient
-    Customer customer;
-
-
 
 }
