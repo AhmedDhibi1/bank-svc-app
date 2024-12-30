@@ -54,7 +54,11 @@
 			<artifactId>jakarta.persistence-api</artifactId>
 			<version>3.1.0</version> <!-- Keep this version -->
 		</dependency>
-
+		<dependency>
+			<groupId>io.grpc</groupId>
+			<artifactId>grpc-netty-shaded</artifactId>
+			<version>1.43.2</version>
+		</dependency>
 		<dependency>
 			<groupId>io.dapr</groupId>
 			<artifactId>dapr-sdk</artifactId>

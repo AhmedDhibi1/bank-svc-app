@@ -18,7 +18,6 @@ class TransactionService:
             response = await client.get(url)
             if response.status_code == 200:
                 try:
-                    print (response.json())
                     return response.json()  # Returns account details including the balance
                 except ValueError:
                     raise HTTPException(status_code=500, detail="Invalid JSON response from account service")
