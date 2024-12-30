@@ -32,16 +32,13 @@ jobs:
     - name: Make mvnw executable
       run: chmod +x ./mvnw
     # Set up SonarQube Scanner
-    - name: Run SonarQube analysis
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_PASSWORD }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
-      run: |
-        ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service -DskipTests
+    - name: SonarQube Analysis
+      run: ./mvnw clean verify sonar:sonar -Dsonar.login=${{ secrets.SONAR_PASSWORD }} -Dsonar.host.url=${{ secrets.SONAR_URL }} -DskipTests
+
 
     # Run SonarQube analysis
-    - name: Run SonarQube analysis
-      run: ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
+    #- name: Run SonarQube analysis
+    #  run: ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
 
     # Set up JDK 17
     
