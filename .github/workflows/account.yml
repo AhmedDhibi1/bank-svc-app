@@ -57,6 +57,8 @@ jobs:
 
     # Set up JDK 17
     
+    - name: Make mvnw executable
+      run: chmod +x ./mvnw
 
     # Build with Maven
     - name: Build with Maven
