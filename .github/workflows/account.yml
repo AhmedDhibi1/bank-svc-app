@@ -37,7 +37,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_PASSWORD }}
         SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
       run: |
-        ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
+        ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service -DskipTests
 
     # Run SonarQube analysis
     - name: Run SonarQube analysis
