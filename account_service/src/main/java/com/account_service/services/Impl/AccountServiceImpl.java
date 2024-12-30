@@ -29,7 +29,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountRepository accountRepository;
     @Override
     public Account create(Account account) {
-        Customer customer = restTemplate.getForObject("http://localhost:3500/v1.0/invoke/customer-service/method/customers/" + account.getCustomerId(), Customer.class);
+        Customer customer = restTemplate.getForObject("http://customer-service.default.svc.cluster.local/v1.0/invoke/customer-service/method/customers/" + account.getCustomerId(), Customer.class);
         if(customer == null) {
             throw new Error("No customer with this ID");
         }
