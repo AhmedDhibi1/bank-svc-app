@@ -32,11 +32,12 @@ jobs:
     - name: Make mvnw executable
       run: chmod +x ./mvnw
     # Set up SonarQube Scanner
-    - name: Set up SonarQube
-      uses: sonarsource/sonarcloud-github-action@v1
-      with:
-        sonar-token: ${{ secrets.SONAR_PASSWORD }}
-        sonar-host-url: ${{ secrets.SONAR_URL }}
+    - name: Run SonarQube analysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_PASSWORD }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
+      run: |
+        ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
 
     # Run SonarQube analysis
     - name: Run SonarQube analysis
