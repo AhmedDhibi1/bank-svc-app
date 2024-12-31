@@ -100,7 +100,7 @@ spec:
                 key: DAPR_HTTP_SERVICE
         resources:
           requests:
-            cpu: "500m"
+            cpu: "250m"
             memory: "512Mi"
           limits:
             cpu: "1"
