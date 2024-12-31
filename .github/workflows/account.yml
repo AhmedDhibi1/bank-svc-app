@@ -124,6 +124,11 @@ jobs:
       uses: azure/setup-helm@v1
       with:
         version: 'v3.7.1'
+        
+    - name: Uninstall existing Redis release if it exists
+      run: |
+        helm uninstall redis || echo "Redis not installed previously, skipping uninstall"
+
     - name: Install Redis using Helm
       run: |
         helm repo add bitnami https://charts.bitnami.com/bitnami
