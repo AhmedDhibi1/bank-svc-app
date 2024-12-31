@@ -83,12 +83,12 @@ jobs:
     # Build Docker image
     - name: Build Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/account_service:latest .
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/account-service:latest .
 
     # Push Docker image to Docker Hub
     - name: Push Docker image to Docker Hub
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/account_service:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/account-service:latest
 
   aks-login:
     runs-on: ubuntu-latest
@@ -106,3 +106,83 @@ jobs:
     - name: Verify Kubernetes context
       run: |
         kubectl get nodes
+
+  deployments:
+    runs-on: ubuntu-latest
+    needs: aks-login
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Apply pubsub and statestore configurations
+      run: |
+        kubectl apply -f ./k8s/daprconfig/pubsub.yml
+        kubectl apply -f ./k8s/daprconfig/staetstore.yml
+
+    - name: Apply secrets
+      run: |
+        kubectl apply -f ./k8s/secrets/
+
+    - name: Apply configmaps
+      run: |
+        kubectl apply -f ./k8s/configmaps/
+
+    - name: Apply persistent volume claims (PVCs)
+      run: |
+        kubectl apply -f ./k8s/pvc/
+
+    - name: Apply stateful sets
+      run: |
+        kubectl apply -f ./k8s/statefullset/
+
+    - name: Apply postgres service
+      run: |
+        kubectl apply -f ./k8s/services/postgres-service.yml
+
+    - name: Apply deployments
+      run: |
+        kubectl apply -f ./k8s/deployments/
+
+    - name: Apply account service
+      run: |
+        kubectl apply -f ./k8s/services/account.yml
+        
+  check-deployment-status:
+    runs-on: ubuntu-latest
+    needs: deployments
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Wait for pods to be healthy
+      run: |
+        echo "Waiting for pods to be healthy..."
+        while true; do
+          PODS_STATUS=$(kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}')
+          if [[ "$PODS_STATUS" == "Running" ]]; then
+            echo "Pods are healthy."
+            break
+          else
+            echo "Waiting for pods to become healthy..."
+            sleep 5
+          fi
+        done
+
+    - name: Wait for services to be healthy
+      run: |
+        echo "Waiting for services to be healthy..."
+        while true; do
+          SERVICES_STATUS=$(kubectl get svc --field-selector=status.loadBalancer.ingress[0].ip -o=jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
+          if [[ -n "$SERVICES_STATUS" ]]; then
+            echo "Services are healthy."
+            break
+          else
+            echo "Waiting for services to become healthy..."
+            sleep 5
+          fi
+        done
+
+    - name: Get everything status
+      run: |
+        echo "Getting overall status of everything..."
+        kubectl get all

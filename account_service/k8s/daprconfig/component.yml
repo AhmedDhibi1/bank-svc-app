@@ -1,0 +1,140 @@
+# State store configuration for PostgreSQL
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore-postgres
+spec:
+  type: state.postgresql
+  version: v1
+  metadata:
+  - name: host
+    value: postgres-service
+  - name: port
+    value: "5432"
+  - name: database
+    secretKeyRef:
+      name: postgres-secrets
+      key: POSTGRES_DB
+  - name: username
+    secretKeyRef:
+      name: postgres-secrets
+      key: POSTGRES_USER
+  - name: password
+    secretKeyRef:
+      name: postgres-secrets
+      key: POSTGRES_PASSWORD
+  - name: tableName
+    value: state
+  - name: schemaName
+    value: public
+  - name: maxIdleConns
+    value: "10"
+  - name: maxOpenConns
+    value: "30"
+  - name: connMaxLifetime
+    value: "1h"
+  - name: connMaxIdleTime
+    value: "30m"
+auth:
+  secretStore: kubernetes
+
+---
+# State store configuration for MySQL
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore-mysql
+spec:
+  type: state.mysql
+  version: v1
+  metadata:
+  - name: host
+    value: mysql-service
+  - name: port
+    value: "3306"
+  - name: databaseName
+    value: customerdb
+  - name: username
+    secretKeyRef:
+      name: mysql-secrets
+      key: MYSQL_USER
+  - name: password
+    secretKeyRef:
+      name: mysql-secrets
+      key: MYSQL_PASSWORD
+  - name: tableName
+    value: state
+  - name: maxIdleConns
+    value: "10"
+  - name: maxOpenConns
+    value: "30"
+  - name: connMaxLifetime
+    value: "1h"
+  - name: connMaxIdleTime
+    value: "30m"
+auth:
+  secretStore: kubernetes
+
+---
+# Service invocation configuration
+apiVersion: dapr.io/v1alpha1
+kind: Configuration
+metadata:
+  name: daprConfig
+spec:
+  tracing:
+    samplingRate: "1"
+    zipkin:
+      endpointAddress: "http://zipkin:9411/api/v2/spans"
+  metric:
+    enabled: true
+  serviceInvocation:
+    maxRetries: 3
+    maxRetryBackoffMs: 3000
+  features:
+    - name: ServiceInvocation
+      enabled: true
+    - name: StateManagement
+      enabled: true
+    - name: PubSub
+      enabled: true
+
+---
+# Redis deployment for pub/sub
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: redis
+#spec:
+#  selector:
+#    matchLabels:
+#      app: redis
+#  template:
+#    metadata:
+#      labels:
+#        app: redis
+#    spec:
+#      containers:
+#      - name: redis
+#        image: redis:6.2-alpine
+#        ports:
+#        - containerPort: 6379
+#        volumeMounts:
+#        - name: redis-data
+#          mountPath: /data
+#      volumes:
+#      - name: redis-data
+#        emptyDir: {}
+#
+#---
+# Redis service
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: redis-master
+#spec:
+#  selector:
+#    app: redis
+#  ports:
+#  - port: 6379
+#    targetPort: 6379
