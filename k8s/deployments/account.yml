@@ -24,9 +24,13 @@ spec:
         dapr.io/app-port: "8083"
         dapr.io/http-port: "3501"
     spec:
+      initContainers:
+      - name: wait-for-postgres
+        image: busybox
+        command: ['sh', '-c', 'until nc -z postgres-service 5432; do echo waiting for postgres; sleep 2; done;']
       containers:
       - name: account-service
-        image: ahmeddhibi/account_service:latest
+        image: ahmeddhibi/account-service:latest
         ports:
         - containerPort: 8083
         env:

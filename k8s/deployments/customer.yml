@@ -24,6 +24,10 @@ spec:
         dapr.io/app-port: "8081"
         dapr.io/http-port: "3500"
     spec:
+      initContainers:
+      - name: wait-for-mysql-service
+        image: busybox
+        command: ['sh', '-c', 'until nc -z mysql-service 3306; do echo waiting for mysql; sleep 2; done;']
       containers:
       - name: customer-service
         image: ahmeddhibi/customer-service:latest
