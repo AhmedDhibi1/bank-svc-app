@@ -250,14 +250,14 @@ jobs:
       run: |
         echo "Getting overall postgres pod..."
         kubectl describe pod -l app=account-service
-    - name: Get logs account-service status
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl logs -l app=account-service 
-    - name: Get logs account-service status
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl logs -l app=account-service -c daprd
+    #- name: Get logs account-service status
+    #  run: |
+    #    echo "Getting overall postgres pod..."
+    #    kubectl logs -l app=account-service 
+    #- name: Get logs account-service status
+    #  run: |
+    #    echo "Getting overall postgres pod..."
+    #    kubectl logs -l app=account-service -c daprd
     - name: check
       run: |
         kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}' -o wide
