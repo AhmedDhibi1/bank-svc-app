@@ -12,6 +12,6 @@ data:
   SERVER_PORT: "8083"
   SPRING_APPLICATION_NAME: ACCOUNT-SERVICE
   DAPR_HTTP_PORT: "3501"
-  DAPR_APP_ID: accounting-service
+  DAPR_APP_ID: account-service
   DAPR_APP_PORT: "8083"
   DAPR_HTTP_SERVICE: customer-service
