@@ -195,7 +195,9 @@ jobs:
        # kubectl delete statefulset postgres
        # kubectl delete deployment account-service
        # kubectl delete pods -l app=account-service
-
+       # kubectl delete component statestore
+       # kubectl delete component pubsub
+    
 
 
     - name: Apply persistent volume claims (PVCs)
@@ -264,7 +266,19 @@ jobs:
     - name : check network redis-service
       run: |
         kubectl get svc redis-service
-    - name: try to connect to redis-service network
+    #- name: try to connect to redis-service network
+    #  run: |
+    #    kubectl run -it --rm --image=busybox redis-test -- sh
+    #    nc -zv redis-service 6379
+    - name: get status
       run: |
-        kubectl run -it --rm --image=busybox redis-test -- sh
-        nc -zv redis-service 6379
+        kubectl get pods -o wide
+        sleep 7
+    - name: get status
+      run: |
+        kubectl get pods --show-labels
+        sleep 7
+    - name: get status
+      run: |
+        kubectl get pods -o wide
+        sleep 7
