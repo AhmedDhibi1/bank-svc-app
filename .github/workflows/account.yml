@@ -124,17 +124,8 @@ jobs:
       uses: azure/setup-helm@v1
       with:
         version: 'v3.7.1'
-        
-    - name: Uninstall existing Redis release if it exists
-      run: |
-        helm uninstall redis || echo "Redis not installed previously, skipping uninstall"
 
-    - name: Install Redis using Helm
-      run: |
-        helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm repo update
-        helm install redis bitnami/redis --set auth.enabled=false
-        sleep 10 # Wait for Redis to be deployed
+    
     - name: Apply postgres service
       run: |
         kubectl apply -f ./account_service/k8s/services/postgres-service.yml
@@ -147,6 +138,16 @@ jobs:
       run: |
         kubectl apply -f ./account_service/k8s/services/redis.yml
         sleep 10 # Wait for 1 minute
+    - name: Uninstall existing Redis release if it exists
+      run: |
+        helm uninstall redis || echo "Redis not installed previously, skipping uninstall"
+
+    - name: Install Redis using Helm
+      run: |
+        helm repo add bitnami https://charts.bitnami.com/bitnami
+        helm repo update
+        helm install redis bitnami/redis --set auth.enabled=false
+        sleep 10 # Wait for Redis to be deployed
     - name: Apply pubsub and statestore configurations
       run: |
         kubectl apply -f ./account_service/k8s/daprconfig/pubsub.yml
@@ -189,10 +190,11 @@ jobs:
         sleep 30 # Wait for 1 minut
     #- name: delete all pods and pvc
     #  run: |
-    #    kubectl delete pvc postgres-pvc
-    #    kubectl delete statefulset postgres
-    #    kubectl delete deployment account-service
-    #    kubectl delete pods -l app=account-service
+       # kubectl delete pvc postgres-pvc
+       # kubectl delete pv postgres-pv
+       # kubectl delete statefulset postgres
+       # kubectl delete deployment account-service
+       # kubectl delete pods -l app=account-service
 
 
 
@@ -239,21 +241,6 @@ jobs:
         kubectl describe pod postgres-0
         sleep 45
     - name: Get logs postgres status 2
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl describe pod postgres-0
-        sleep  45
-    - name: Get logs postgres status 3
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl describe pod postgres-0
-        sleep  45
-    - name: Get logs postgres status 4
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl describe pod postgres-0
-        sleep  45
-    - name: Get logs postgres status 5
       run: |
         echo "Getting overall postgres pod..."
         kubectl describe pod postgres-0
