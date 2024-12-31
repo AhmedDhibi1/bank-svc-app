@@ -162,23 +162,23 @@ jobs:
       run: |
         kubectl apply -f ./account_service/k8s/configmaps/
         sleep 10 # Wait for 1 minute
-    - name : Apply pv
-      run: |
-        kubectl apply -f ./account_service/k8s/pvc/pv.yml
-        sleep 30 # Wait for 1 minut
-    - name: delete all pods and pvc
-      run: |
-        kubectl delete pvc postgres-pvc
-        kubectl delete statefulset postgres
-        kubectl delete deployment account-service
-        kubectl delete pods -l app=account-service
+    #- name : Apply pv
+    #  run: |
+    #    kubectl apply -f ./account_service/k8s/pvc/pv.yml
+    #    sleep 30 # Wait for 1 minut
+    #- name: delete all pods and pvc
+    #  run: |
+    #    kubectl delete pvc postgres-pvc
+    #    kubectl delete statefulset postgres
+    #    kubectl delete deployment account-service
+    #    kubectl delete pods -l app=account-service
 
 
 
     - name: Apply persistent volume claims (PVCs)
       run: |
         kubectl apply -f ./account_service/k8s/pvc/postgres-pvc.yml
-        sleep 60 # Wait for 1.5 minute
+        sleep 30 # Wait for 1.5 minute
 
     - name: Apply stateful sets
       run: |
