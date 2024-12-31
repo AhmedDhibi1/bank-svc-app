@@ -90,22 +90,22 @@ jobs:
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/account-service:latest
 
-  aks-login:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: Log in to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Set up AKS credentials
-      run: |
-        az aks get-credentials --resource-group application --name kube --overwrite-existing
-
-    - name: Verify Kubernetes context
-      run: |
-        kubectl get nodes
+#  aks-login:
+#    runs-on: ubuntu-latest
+#    needs: build
+#    steps:
+#    - name: Log in to Azure
+#      uses: azure/login@v1
+#      with:
+#        creds: ${{ secrets.AZURE_CREDENTIALS }}
+#
+#    - name: Set up AKS credentials
+#      run: |
+#        az aks get-credentials --resource-group application --name kube --overwrite-existing
+#
+#    - name: Verify Kubernetes context
+#      run: |
+#        kubectl get nodes
 
   deployments:
     runs-on: ubuntu-latest
@@ -125,43 +125,48 @@ jobs:
       run: |
         kubectl apply -f ./account_service/k8s/daprconfig/pubsub.yml
         kubectl apply -f ./account_service/k8s/daprconfig/staetstore.yml
-        sleep 60 # Wait for 1 minute
+        sleep 10 # Wait for 1 minute
     - name: Apply postgres service
       run: |
         kubectl apply -f ./account_service/k8s/services/postgres-service.yml
-        sleep 60 # Wait for 1 minute
+        sleep 10 # Wait for 1 minute
     - name: Apply account service
       run: |
         kubectl apply -f ./account_service/k8s/services/account.yml
-        sleep 60 # Wait for 1 minute
+        sleep 10 # Wait for 1 minute
 
-    - name: Wait for services to be healthy
+    #- name: Wait for services to be healthy
+    #  run: |
+    #    echo "Waiting for services to be healthy..."
+    #    while true; do
+    #      SERVICES_STATUS=$(kubectl get svc --field-selector=status.loadBalancer.ingress[0].ip -o=jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
+    #      if [[ -n "$SERVICES_STATUS" ]]; then
+    #        echo "Services are healthy."
+    #        break
+    #      else
+    #        echo "Waiting for services to become healthy..."
+    #        sleep 5
+    #      fi
+    #    done
+    - name: get services status
       run: |
         echo "Waiting for services to be healthy..."
-        while true; do
-          SERVICES_STATUS=$(kubectl get svc --field-selector=status.loadBalancer.ingress[0].ip -o=jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
-          if [[ -n "$SERVICES_STATUS" ]]; then
-            echo "Services are healthy."
-            break
-          else
-            echo "Waiting for services to become healthy..."
-            sleep 5
-          fi
-        done
+        kubectl get svc -o wide
+
     - name: Apply secrets
       run: |
         kubectl apply -f ./account_service/k8s/secrets/
-        sleep 60 # Wait for 1 minute
+        sleep 10 # Wait for 1 minute
 
     - name: Apply configmaps
       run: |
         kubectl apply -f ./account_service/k8s/configmaps/
-        sleep 60 # Wait for 1 minute
+        sleep 10 # Wait for 1 minute
 
     - name: Apply persistent volume claims (PVCs)
       run: |
         kubectl apply -f ./account_service/k8s/pvc/
-        sleep 90 # Wait for 1.5 minute
+        sleep 60 # Wait for 1.5 minute
 
     - name: Apply stateful sets
       run: |
