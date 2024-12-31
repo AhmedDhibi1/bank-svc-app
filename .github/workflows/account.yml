@@ -162,10 +162,10 @@ jobs:
       run: |
         kubectl apply -f ./account_service/k8s/configmaps/
         sleep 10 # Wait for 1 minute
-    #- name : Apply pv
-    #  run: |
-    #    kubectl apply -f ./account_service/k8s/pvc/pv.yml
-    #    sleep 30 # Wait for 1 minut
+    - name : Apply pv
+      run: |
+        kubectl apply -f ./account_service/k8s/pvc/pv.yml
+        sleep 30 # Wait for 1 minut
     #- name: delete all pods and pvc
     #  run: |
     #    kubectl delete pvc postgres-pvc
@@ -183,42 +183,66 @@ jobs:
     - name: Apply stateful sets
       run: |
         kubectl apply -f ./account_service/k8s/statefullset/
-        sleep 120 # Wait for 2 minute
+        sleep 30 # Wait for 2 minute
 
     - name: Apply deployments
       run: |
         kubectl apply -f ./account_service/k8s/deployments/
 
-    - name: Wait for pods to be healthy
-      run: |
-        echo "Waiting for pods to be healthy..."
-        while true; do
-          PODS_STATUS=$(kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}')
-          if [[ "$PODS_STATUS" == "Running" ]]; then
-            echo "Pods are healthy."
-            break
-          else
-            echo "Waiting for pods to become healthy..."
-            sleep 5
-          fi
-        done
+    #- name: Wait for pods to be healthy
+    #  run: |
+    #    echo "Waiting for pods to be healthy..."
+    #    while true; do
+    #      PODS_STATUS=$(kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}')
+    #      if [[ "$PODS_STATUS" == "Running" ]]; then
+    #        echo "Pods are healthy."
+    #        break
+    #      else
+    #        echo "Waiting for pods to become healthy..."
+    #        sleep 5
+    #      fi
+    #    done
     - name: Get everything status
       run: |
         echo "Getting overall status of everything..."
-        kubectl get all -o wide
+        kubectl get pods -o wide
         sleep 10
     - name: Get pods status
       run: |
         echo "Getting overall status of everything..."
         kubectl get pods -o wide
-        sleep 5
-    - name: Get logs postgres status
+        sleep 60
+    - name: Get logs postgres status 1
       run: |
-        echo "Getting overall status of everything..."
-        kubectl logs postgres-0 -o wide
-        sleep 5
-    - name: Get logs acoount-service status
+        echo "Getting overall postgres pod..."
+        kubectl describe pod postgres-0
+        sleep 45
+    - name: Get logs postgres status 2
       run: |
-        echo "Getting overall status of everything..."
+        echo "Getting overall postgres pod..."
+        kubectl describe pod postgres-0
+        sleep  45
+    - name: Get logs postgres status 3
+      run: |
+        echo "Getting overall postgres pod..."
+        kubectl describe pod postgres-0
+        sleep  45
+    - name: Get logs postgres status 4
+      run: |
+        echo "Getting overall postgres pod..."
+        kubectl describe pod postgres-0
+        sleep  45
+    - name: Get logs postgres status 5
+      run: |
+        echo "Getting overall postgres pod..."
+        kubectl describe pod postgres-0
+        sleep  45
+    - name: Get logs account-service status
+      run: |
+        echo "Getting overall postgres pod..."
         kubectl logs -l app=account-service
-        sleep 5
+        sleep 45
+    - name: check
+      run: |
+        kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}'
+    
