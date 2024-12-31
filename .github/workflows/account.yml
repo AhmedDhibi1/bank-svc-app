@@ -147,9 +147,9 @@ jobs:
         kubectl apply -f ./account_service/k8s/daprconfig/pubsub.yml
         kubectl apply -f ./account_service/k8s/daprconfig/staetstore.yml
         sleep 10 # Wait for 1 minute
-    - name: Wait for Redis to be ready
-      run: |
-        kubectl wait --for=condition=ready pod -l app=redis --timeout=120s
+    #- name: Wait for Redis to be ready
+    #  run: |
+    #    kubectl wait --for=condition=ready pod -l app=redis --timeout=120s
 
     #- name: Wait for services to be healthy
     #  run: |
@@ -256,9 +256,14 @@ jobs:
     - name: Get logs account-service status
       run: |
         echo "Getting overall postgres pod..."
+        kubectl describe pod -l app=account-service
+        sleep 45
+    - name: Get logs account-service status
+      run: |
+        echo "Getting overall postgres pod..."
         kubectl logs -l app=account-service
         sleep 45
     - name: check
       run: |
-        kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}'
+        kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}' -o wide
     
