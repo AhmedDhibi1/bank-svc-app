@@ -89,3 +89,22 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/account_service:latest
+
+  aks-login:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+
+    - name: Set up AKS credentials
+      run: |
+        az aks get-credentials --resource-group application --name kube --overwrite-existing
+
+    - name: Verify Kubernetes context
+      run: |
+        kubectl get nodes
