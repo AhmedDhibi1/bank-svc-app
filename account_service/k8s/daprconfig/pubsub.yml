@@ -12,3 +12,4 @@ spec:
       value: ""
 scopes:
   - account-service
+  
