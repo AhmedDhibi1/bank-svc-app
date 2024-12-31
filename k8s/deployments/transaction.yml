@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: transaction-service
-        image: your-acr.azurecr.io/transaction-service:latest
+        image: ahmeddhibi/transaction-service:latest
         ports:
         - containerPort: 8000
         envFrom:
