@@ -128,7 +128,7 @@ jobs:
       run: |
         helm repo add bitnami https://charts.bitnami.com/bitnami
         helm repo update
-        helm install redis bitnami/redis
+        helm install redis bitnami/redis --set auth.enabled=false
         sleep 10 # Wait for Redis to be deployed
     - name: Apply postgres service
       run: |
