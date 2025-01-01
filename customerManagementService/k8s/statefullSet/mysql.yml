@@ -13,16 +13,20 @@ spec:
       labels:
         app: mysql
     spec:
-      #initContainers:
-      #- name: wait-for-pvc
-      #  image: busybox
-      #  command: ['sh', '-c', 'until [ -e /var/lib/mysql/data ]; do echo waiting for pvc; sleep 2; done;']
-      #  volumeMounts:
-      #  - name: mysql-storage
-      #    mountPath: /var/lib/mysql/data
+      initContainers:
+      - name: wait-for-pvc
+        image: busybox
+        command: ['sh', '-c', 'until [ -e /var/lib/mysql/data ]; do echo waiting for pvc; sleep 2; done;']
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql/data
       containers:
       - name: mysql
         image: mysql:8
+        args:
+        - --default-authentication-plugin=mysql_native_password
+        - --character-set-server=utf8mb4
+        - --collation-server=utf8mb4_unicode_ci
         ports:
         - containerPort: 3306
         envFrom:
@@ -34,7 +38,7 @@ spec:
         - name: mysql-storage
           mountPath: /var/lib/mysql/data
           subPath: mysql
-  volumes:
-    - name: mysql-storage
-      persistentVolumeClaim:
-        claimName: mysql-pvc
+      volumes:
+      - name: mysql-storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc
