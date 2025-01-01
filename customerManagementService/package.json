@@ -27,7 +27,6 @@
     "dotenv": "^9.0.2"
   },
   "devDependencies": {
-    "dotenv": "^9.0.2"
   },
   "description": ""
 }
