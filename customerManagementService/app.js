@@ -15,7 +15,6 @@ app.use(cors());
 app.use(`/customers`, customersRouter);
 
 
-
 app.post("/dapr/subscribe/updateAccount", (req, res) => {
   const cloudEvent = req.body;
   const eventData = cloudEvent.data;
