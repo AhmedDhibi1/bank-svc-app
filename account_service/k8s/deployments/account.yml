@@ -98,6 +98,11 @@ spec:
               configMapKeyRef:
                 name: account-service-config
                 key: DAPR_HTTP_SERVICE
+          - name: CUSTOMER_DAPR_URL
+            valueFrom:
+              configMapKeyRef:
+                name: account-service-config
+                key: CUSTOMER_DAPR_URL
         resources:
           requests:
             cpu: "250m"
