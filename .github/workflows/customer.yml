@@ -206,6 +206,8 @@ jobs:
     - name: Apply stateful sets
       run: |
         kubectl apply -f ./customerManagementService/k8s/statefullSet/
+        kubectl wait --for=condition=ready pod -l app=mysql-service --timeout=120s
+        kubectl exec -i mysql-0 -- mysql -u admin -p admin -e "CREATE DATABASE IF NOT EXISTS customers;"
         sleep 30 # Wait for 2 minute
 
     - name: Apply deployments
