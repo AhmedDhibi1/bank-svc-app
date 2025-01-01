@@ -2,10 +2,10 @@ name: CI Pipeline for customerManagementService
 
 on:
   push:
-    branches: 
+    branches:
       - branch3
     paths:
-      - 'customerManagementService/**'
+      - "customerManagementService/**"
   pull_request:
     branches:
       - branch3
@@ -18,267 +18,264 @@ jobs:
         working-directory: ./customerManagementService
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 20.11.1
-    - name: Install Dependencies
-      run: npm install
-    
-    - name: sonar scan
-      uses: SonarSource/sonarqube-scan-action@v3
-      with:
-        args: >
-          -Dsonar.projectKey=customer-service
-          -Dsonar.sources=customerManagementService
-          -Dsonar.exclusions=account_service/**
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - uses: sonarsource/sonarqube-quality-gate-action@master
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.11.1
+      - name: Install Dependencies
+        run: npm install
 
-    # Run SonarQube analysis
-    #- name: Run SonarQube analysis
-    #  run: ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
+      - name: sonar scan
+        uses: SonarSource/sonarqube-scan-action@v3
+        with:
+          args: >
+            -Dsonar.projectKey=customer-service
+            -Dsonar.sources=customerManagementService
+            -Dsonar.exclusions=account_service/**
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        # If you wish to fail your job when the Quality Gate is red, uncomment the
+        # following lines. This would typically be used to fail a deployment.
+        # - uses: sonarsource/sonarqube-quality-gate-action@master
+        #   timeout-minutes: 5
+        #   env:
+        #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-    # Set up JDK 17
-    
-    #- name: Make mvnw executable
-    #  run: chmod +x ./mvnw
-#
-    # Build with Maven
-    #- name: Build with Maven
-    #  run: ./mvnw package -DskipTests
-#
-    ## List target directory contents
-    #- name: List target directory contents
-    #  run: ls -al ./target/
-    #      
-    ## Upload artifact to Nexus
-    #- name: Upload artifact to Nexus
-    #  run: |
-    #    curl -v -u ${{ secrets.NEXUS_USERNAME }}:${{ secrets.NEXUS_PASSWORD }} --upload-file ./target/*.jar ${{ secrets.NEXUS_URL }}/repository/maven-releases/com/your-org/account_service/1.0.0/account_service-1.0.0.jar
+      # Run SonarQube analysis
+      #- name: Run SonarQube analysis
+      #  run: ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
 
-    # Log in to Docker Hub
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      # Set up JDK 17
 
-    # Build Docker image
-    - name: Build Docker image
-      run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/customer-service:latest .
+      #- name: Make mvnw executable
+      #  run: chmod +x ./mvnw
+      #
+      # Build with Maven
+      #- name: Build with Maven
+      #  run: ./mvnw package -DskipTests
+      #
+      ## List target directory contents
+      #- name: List target directory contents
+      #  run: ls -al ./target/
+      #
+      ## Upload artifact to Nexus
+      #- name: Upload artifact to Nexus
+      #  run: |
+      #    curl -v -u ${{ secrets.NEXUS_USERNAME }}:${{ secrets.NEXUS_PASSWORD }} --upload-file ./target/*.jar ${{ secrets.NEXUS_URL }}/repository/maven-releases/com/your-org/account_service/1.0.0/account_service-1.0.0.jar
 
-    # Push Docker image to Docker Hub
-    - name: Push Docker image to Docker Hub
-      run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/customer-service:latest
+      # Log in to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-#  aks-login:
-#    runs-on: ubuntu-latest
-#    needs: build
-#    steps:
-#    - name: Log in to Azure
-#      uses: azure/login@v1
-#      with:
-#        creds: ${{ secrets.AZURE_CREDENTIALS }}
-#
-#    - name: Set up AKS credentials
-#      run: |
-#        az aks get-credentials --resource-group application --name kube --overwrite-existing
-#
-#    - name: Verify Kubernetes context
-#      run: |
-#        kubectl get nodes
+      # Build Docker image
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/customer-service:latest .
+
+      # Push Docker image to Docker Hub
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/customer-service:latest
+
+  #  aks-login:
+  #    runs-on: ubuntu-latest
+  #    needs: build
+  #    steps:
+  #    - name: Log in to Azure
+  #      uses: azure/login@v1
+  #      with:
+  #        creds: ${{ secrets.AZURE_CREDENTIALS }}
+  #
+  #    - name: Set up AKS credentials
+  #      run: |
+  #        az aks get-credentials --resource-group application --name kube --overwrite-existing
+  #
+  #    - name: Verify Kubernetes context
+  #      run: |
+  #        kubectl get nodes
 
   deployments:
     runs-on: ubuntu-latest
     needs: build
     steps:
-    - name: Log in to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Set up AKS credentials
-      run: |
-        az aks get-credentials --resource-group application --name kube --overwrite-existing
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Helm
-      uses: azure/setup-helm@v1
-      with:
-        version: 'v3.7.1'
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Set up AKS credentials
+        run: |
+          az aks get-credentials --resource-group application --name kube --overwrite-existing
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: "v3.7.1"
 
-    
-    - name: Apply postgres service
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/services/mysql-service.yml
-        sleep 10 # Wait for 1 minute
-    - name: Apply account service
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/services/customer.yml
-        sleep 10 # Wait for 1 minute
-    #- name: apply redis service
-    #  run: |
-    #    kubectl apply -f ./customerManagementService/k8s/services/redis.yml
-    #    sleep 10 # Wait for 1 minute
-    #- name: Uninstall existing Redis release if it exists
-    #  run: |
-    #    helm uninstall redis || echo "Redis not installed previously, skipping uninstall"
-#
-    #- name: Install Redis using Helm
-    #  run: |
-    #    helm repo add bitnami https://charts.bitnami.com/bitnami
-    #    helm repo update
-    #    helm install redis bitnami/redis --set auth.enabled=false
-    #    sleep 10 # Wait for Redis to be deployed
-    - name: Apply pubsub and statestore configurations
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/daprconfig/pubsub.yml
-    #    kubectl apply -f ./customerManagementService/k8s/daprconfig/subscription.yml
-    #    kubectl apply -f ./customerManagementService/k8s/daprconfig/staetstore.yml
-    #    kubectl apply -f ./customerManagementService/k8s/daprconfig/twilio-binding.yml
-    #    sleep 10 # Wait for 1 minute
-    #- name: Wait for Redis to be ready
-    #  run: |
-    #    kubectl wait --for=condition=ready pod -l app=redis --timeout=120s
+      - name: Apply postgres service
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/services/mysql-service.yml
+          sleep 10 # Wait for 1 minute
+      - name: Apply account service
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/services/customer.yml
+          sleep 10 # Wait for 1 minute
+      #- name: apply redis service
+      #  run: |
+      #    kubectl apply -f ./customerManagementService/k8s/services/redis.yml
+      #    sleep 10 # Wait for 1 minute
+      #- name: Uninstall existing Redis release if it exists
+      #  run: |
+      #    helm uninstall redis || echo "Redis not installed previously, skipping uninstall"
+      #
+      #- name: Install Redis using Helm
+      #  run: |
+      #    helm repo add bitnami https://charts.bitnami.com/bitnami
+      #    helm repo update
+      #    helm install redis bitnami/redis --set auth.enabled=false
+      #    sleep 10 # Wait for Redis to be deployed
+      - name: Apply pubsub and statestore configurations
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/daprconfig/pubsub.yml
+      #    kubectl apply -f ./customerManagementService/k8s/daprconfig/subscription.yml
+      #    kubectl apply -f ./customerManagementService/k8s/daprconfig/staetstore.yml
+      #    kubectl apply -f ./customerManagementService/k8s/daprconfig/twilio-binding.yml
+      #    sleep 10 # Wait for 1 minute
+      #- name: Wait for Redis to be ready
+      #  run: |
+      #    kubectl wait --for=condition=ready pod -l app=redis --timeout=120s
 
-    #- name: Wait for services to be healthy
-    #  run: |
-    #    echo "Waiting for services to be healthy..."
-    #    while true; do
-    #      SERVICES_STATUS=$(kubectl get svc --field-selector=status.loadBalancer.ingress[0].ip -o=jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
-    #      if [[ -n "$SERVICES_STATUS" ]]; then
-    #        echo "Services are healthy."
-    #        break
-    #      else
-    #        echo "Waiting for services to become healthy..."
-    #        sleep 5
-    #      fi
-    #    done
-    - name: get services status
-      run: |
-        echo "Waiting for services to be healthy..."
-        kubectl get svc -o wide
+      #- name: Wait for services to be healthy
+      #  run: |
+      #    echo "Waiting for services to be healthy..."
+      #    while true; do
+      #      SERVICES_STATUS=$(kubectl get svc --field-selector=status.loadBalancer.ingress[0].ip -o=jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}')
+      #      if [[ -n "$SERVICES_STATUS" ]]; then
+      #        echo "Services are healthy."
+      #        break
+      #      else
+      #        echo "Waiting for services to become healthy..."
+      #        sleep 5
+      #      fi
+      #    done
+      - name: get services status
+        run: |
+          echo "Waiting for services to be healthy..."
+          kubectl get svc -o wide
 
-    - name: Apply secrets
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/secrets/
-        sleep 10 # Wait for 1 minute
+      - name: Apply secrets
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/secrets/
+          sleep 10 # Wait for 1 minute
 
-    - name: Apply configmaps
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/configmaps/
-        sleep 10 # Wait for 1 minute
-    - name : Apply pv
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/pvc/pv.yml
-        sleep 30 # Wait for 1 minut
-    #- name: delete all pods and pvc
-    #  run: |
-       # kubectl delete pvc postgres-pvc
-       # kubectl delete pv postgres-pv
-       # kubectl delete statefulset postgres
-       # kubectl delete deployment account-service
-       # kubectl delete pods -l app=account-service
-       # kubectl delete component statestore
-       # kubectl delete component pubsub
-    
+      - name: Apply configmaps
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/configmaps/
+          sleep 10 # Wait for 1 minute
+      - name: Apply pv
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/pvc/pv.yml
+          sleep 30 # Wait for 1 minut
+      #- name: delete all pods and pvc
+      #  run: |
+      # kubectl delete pvc postgres-pvc
+      # kubectl delete pv postgres-pv
+      # kubectl delete statefulset postgres
+      # kubectl delete deployment account-service
+      # kubectl delete pods -l app=account-service
+      # kubectl delete component statestore
+      # kubectl delete component pubsub
 
+      - name: Apply persistent volume claims (PVCs)
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/pvc/mysql-pvc.yml
+          sleep 30 # Wait for 1.5 minute
 
-    - name: Apply persistent volume claims (PVCs)
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/pvc/mysql-pvc.yml
-        sleep 30 # Wait for 1.5 minute
+      - name: Apply stateful sets
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/statefullSet/
+          kubectl wait --for=condition=ready pod -l app=mysql --timeout=120s
+          kubectl exec -i mysql-0 -- mysql -u admin -p admin -e "CREATE DATABASE IF NOT EXISTS customers;"
+          sleep 30 # Wait for 2 minute
 
-    - name: Apply stateful sets
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/statefullSet/
-        kubectl wait --for=condition=ready pod -l app=mysql-service --timeout=120s
-        kubectl exec -i mysql-0 -- mysql -u admin -p admin -e "CREATE DATABASE IF NOT EXISTS customers;"
-        sleep 30 # Wait for 2 minute
+      - name: Apply deployments
+        run: |
+          kubectl apply -f ./customerManagementService/k8s/deployments/
 
-    - name: Apply deployments
-      run: |
-        kubectl apply -f ./customerManagementService/k8s/deployments/
+      #- name: Wait for pods to be healthy
+      #  run: |
+      #    echo "Waiting for pods to be healthy..."
+      #    while true; do
+      #      PODS_STATUS=$(kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}')
+      #      if [[ "$PODS_STATUS" == "Running" ]]; then
+      #        echo "Pods are healthy."
+      #        break
+      #      else
+      #        echo "Waiting for pods to become healthy..."
+      #        sleep 5
+      #      fi
+      #    done
+      - name: Get everything status
+        run: |
+          echo "Getting overall status of everything..."
+          kubectl get pods -o wide
 
-    #- name: Wait for pods to be healthy
-    #  run: |
-    #    echo "Waiting for pods to be healthy..."
-    #    while true; do
-    #      PODS_STATUS=$(kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}')
-    #      if [[ "$PODS_STATUS" == "Running" ]]; then
-    #        echo "Pods are healthy."
-    #        break
-    #      else
-    #        echo "Waiting for pods to become healthy..."
-    #        sleep 5
-    #      fi
-    #    done
-    - name: Get everything status
-      run: |
-        echo "Getting overall status of everything..."
-        kubectl get pods -o wide
-        
-    - name: Get pods status
-      run: |
-        echo "Getting overall status of everything..."
-        kubectl get pods -o wide
-        
-    - name: Get logs postgres status 1
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl describe pod postgres-0
-        
-    - name: Get logs components
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl describe component statestore
-        kubectl describe component pubsub
-        
-    - name: Get describe account-service status
-      run: |
-        echo "Getting overall postgres pod..."
-        kubectl describe pod -l app=account-service
-    #- name: Get logs account-service status
-    #  run: |
-    #    echo "Getting overall postgres pod..."
-    #    kubectl logs -l app=account-service 
-    #- name: Get logs account-service status
-    #  run: |
-    #    echo "Getting overall postgres pod..."
-    #    kubectl logs -l app=account-service -c daprd
-    - name: check
-      run: |
-        kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}' -o wide
-    - name : check network redis-service
-      run: |
-        kubectl get svc redis-service
-    #- name: try to connect to redis-service network
-    #  run: |
-    #    kubectl run -it --rm --image=busybox redis-test -- sh
-    #    nc -zv redis-service 6379
-    - name: get status
-      run: |
-        kubectl get pods -o wide
-        sleep 7
-    - name: get status
-      run: |
-        kubectl get pods --show-labels
-        sleep 7
-    - name: get status
-      run: |
-        kubectl get pods -o wide
-        sleep 7
+      - name: Get pods status
+        run: |
+          echo "Getting overall status of everything..."
+          kubectl get pods -o wide
+
+      - name: Get logs postgres status 1
+        run: |
+          echo "Getting overall postgres pod..."
+          kubectl describe pod postgres-0
+
+      - name: Get logs components
+        run: |
+          echo "Getting overall postgres pod..."
+          kubectl describe component statestore
+          kubectl describe component pubsub
+
+      - name: Get describe account-service status
+        run: |
+          echo "Getting overall postgres pod..."
+          kubectl describe pod -l app=account-service
+      #- name: Get logs account-service status
+      #  run: |
+      #    echo "Getting overall postgres pod..."
+      #    kubectl logs -l app=account-service
+      #- name: Get logs account-service status
+      #  run: |
+      #    echo "Getting overall postgres pod..."
+      #    kubectl logs -l app=account-service -c daprd
+      - name: check
+        run: |
+          kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{.items[*].status.phase}' -o wide
+      - name: check network redis-service
+        run: |
+          kubectl get svc redis-service
+      #- name: try to connect to redis-service network
+      #  run: |
+      #    kubectl run -it --rm --image=busybox redis-test -- sh
+      #    nc -zv redis-service 6379
+      - name: get status
+        run: |
+          kubectl get pods -o wide
+          sleep 7
+      - name: get status
+        run: |
+          kubectl get pods --show-labels
+          sleep 7
+      - name: get status
+        run: |
+          kubectl get pods -o wide
+          sleep 7
