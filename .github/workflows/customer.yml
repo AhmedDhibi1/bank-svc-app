@@ -205,7 +205,7 @@ jobs:
 
     - name: Apply stateful sets
       run: |
-        kubectl apply -f ./customerManagementService/k8s/statefullset/
+        kubectl apply -f ./customerManagementService/k8s/statefullSet/
         sleep 30 # Wait for 2 minute
 
     - name: Apply deployments
