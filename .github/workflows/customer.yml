@@ -18,73 +18,65 @@ jobs:
         working-directory: ./customerManagementService
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.11.1
-      - name: Install Dependencies
-        run: npm install
-
-      - name: sonar scan
-        uses: SonarSource/sonarqube-scan-action@v3
-        with:
-          args: >
-            -Dsonar.projectKey=customer-service
-            -Dsonar.sources=customerManagementService
-            -Dsonar.exclusions=account_service/**
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        # If you wish to fail your job when the Quality Gate is red, uncomment the
-        # following lines. This would typically be used to fail a deployment.
-        # - uses: sonarsource/sonarqube-quality-gate-action@master
-        #   timeout-minutes: 5
-        #   env:
-        #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      # Run SonarQube analysis
-      #- name: Run SonarQube analysis
-      #  run: ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
-
-      # Set up JDK 17
-
-      #- name: Make mvnw executable
-      #  run: chmod +x ./mvnw
-      #
-      # Build with Maven
-      #- name: Build with Maven
-      #  run: ./mvnw package -DskipTests
-      #
-      ## List target directory contents
-      #- name: List target directory contents
-      #  run: ls -al ./target/
-      #
-      ## Upload artifact to Nexus
-      #- name: Upload artifact to Nexus
-      #  run: |
-      #    curl -v -u ${{ secrets.NEXUS_USERNAME }}:${{ secrets.NEXUS_PASSWORD }} --upload-file ./target/*.jar ${{ secrets.NEXUS_URL }}/repository/maven-releases/com/your-org/account_service/1.0.0/account_service-1.0.0.jar
-
-      # Log in to Docker Hub
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      # Build Docker image
-      - name: Build Docker image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/customer-service:latest .
-
-      # Push Docker image to Docker Hub
-      - name: Push Docker image to Docker Hub
-        run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/customer-service:latest
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.11.1
+    - name: Install Dependencies
+      run: npm install
+    - name: sonar scan
+      uses: SonarSource/sonarqube-scan-action@v3
+      with:
+        args: >
+          -Dsonar.projectKey=customer-service
+          -Dsonar.sources=customerManagementService
+          -Dsonar.exclusions=account_service/**
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      # If you wish to fail your job when the Quality Gate is red, uncomment the
+      # following lines. This would typically be used to fail a deployment.
+      # - uses: sonarsource/sonarqube-quality-gate-action@master
+      #   timeout-minutes: 5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    # Run SonarQube analysis
+    #- name: Run SonarQube analysis
+    #  run: ./mvnw clean verify sonar:sonar -Dsonar.projectKey=account_service
+    # Set up JDK 17
+    #- name: Make mvnw executable
+    #  run: chmod +x ./mvnw
+    #
+    # Build with Maven
+    #- name: Build with Maven
+    #  run: ./mvnw package -DskipTests
+    #
+    ## List target directory contents
+    #- name: List target directory contents
+    #  run: ls -al ./target/
+    #
+    ## Upload artifact to Nexus
+    #- name: Upload artifact to Nexus
+    #  run: |
+    #    curl -v -u ${{ secrets.NEXUS_USERNAME }}:${{ secrets.NEXUS_PASSWORD }} --upload-file ./target/*.jar ${{ secrets.NEXUS_URL }}/repository/maven-releases/com/your-org/account_service/1.0.0/account_service-1.0.0.jar
+    # Log in to Docker Hub
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    # Build Docker image
+    - name: Build Docker image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/customer-service:latest .
+    # Push Docker image to Docker Hub
+    - name: Push Docker image to Docker Hub
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/customer-service:latest
 
   #  aks-login:
   #    runs-on: ubuntu-latest

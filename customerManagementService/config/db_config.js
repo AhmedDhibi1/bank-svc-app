@@ -10,3 +10,4 @@ const sequelize = new Sequelize(db_name, customer, password, {
   port: 3306,
 });
 module.exports = sequelize;
+
