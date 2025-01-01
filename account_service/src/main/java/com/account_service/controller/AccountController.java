@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RestController
+@RestController("AccountController")
 @RequestMapping("/account")
 public class AccountController {
 
@@ -54,7 +54,6 @@ public class AccountController {
 
     @PutMapping("/{accountID}")
     public ResponseEntity<Account> updateAccount(@RequestBody Account account, @PathVariable String accountID){
-        System.out.println(account.getBalance());
         return ResponseEntity.status(HttpStatus.OK).body(accountService.updateAccount(accountID,account));
     }
 

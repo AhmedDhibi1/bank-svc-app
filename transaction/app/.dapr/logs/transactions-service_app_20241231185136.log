@@ -1,0 +1,14 @@
+== APP - transactions-service == INFO:     Will watch for changes in these directories: ['/home/iheb/Documents/Projects/bank-svc-app/transaction/app']
+== APP - transactions-service == INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+== APP - transactions-service == INFO:     Started reloader process [1376974] using WatchFiles
+== APP - transactions-service == INFO:     Started server process [1376988]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == INFO:     127.0.0.1:44280 - "GET /dapr/config HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:43948 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == [{'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}}, {'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100}, {'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}}]
+== APP - transactions-service == [{'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit'}, {'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b'}, {'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}}]
+== APP - transactions-service == INFO:     127.0.0.1:43948 - "POST /transactions/ HTTP/1.1" 200 OK
+
+termination signal received: shutting down
