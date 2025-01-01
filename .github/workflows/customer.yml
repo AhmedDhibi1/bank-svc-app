@@ -139,9 +139,9 @@ jobs:
     #    helm repo update
     #    helm install redis bitnami/redis --set auth.enabled=false
     #    sleep 10 # Wait for Redis to be deployed
-    #- name: Apply pubsub and statestore configurations
-    #  run: |
-    #    kubectl apply -f ./customerManagementService/k8s/daprconfig/pubsub.yml
+    - name: Apply pubsub and statestore configurations
+      run: |
+        kubectl apply -f ./customerManagementService/k8s/daprconfig/pubsub.yml
     #    kubectl apply -f ./customerManagementService/k8s/daprconfig/subscription.yml
     #    kubectl apply -f ./customerManagementService/k8s/daprconfig/staetstore.yml
     #    kubectl apply -f ./customerManagementService/k8s/daprconfig/twilio-binding.yml

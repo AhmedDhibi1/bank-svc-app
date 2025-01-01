@@ -44,7 +44,7 @@ async function sendSMS(customerPhoneNumber, transactionDetails) {
 
   try {
     await axios.post(
-      "http://localhost:3510/v1.0/bindings/twilio-binding",
+      process.env.dapr_bindings,
       smsPayload
     );
     console.log("SMS sent successfully");
