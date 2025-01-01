@@ -13,13 +13,13 @@ spec:
       labels:
         app: mysql
     spec:
-      initContainers:
-      - name: wait-for-pvc
-        image: busybox
-        command: ['sh', '-c', 'until [ -e /var/lib/mysql ]; do echo waiting for pvc; sleep 2; done;']
-        volumeMounts:
-        - name: mysql-storage
-          mountPath: /var/lib/mysql
+      #initContainers:
+      #- name: wait-for-pvc
+      #  image: busybox
+      #  command: ['sh', '-c', 'until [ -e /var/lib/mysql/data ]; do echo waiting for pvc; sleep 2; done;']
+      #  volumeMounts:
+      #  - name: mysql-storage
+      #    mountPath: /var/lib/mysql/data
       containers:
       - name: mysql
         image: mysql:8
@@ -32,13 +32,9 @@ spec:
             name: mysql-config
         volumeMounts:
         - name: mysql-storage
-          mountPath: /var/lib/mysql
+          mountPath: /var/lib/mysql/data
           subPath: mysql
-  volumeClaimTemplates:
-  - metadata:
-      name: mysql-storage
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 10Gi
+  volumes:
+    - name: mysql-storage
+      persistentVolumeClaim:
+        claimName: mysql-pvc
