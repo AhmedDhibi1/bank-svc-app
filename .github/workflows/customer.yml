@@ -32,6 +32,9 @@ jobs:
     
     - name: sonar scan
       uses: SonarSource/sonarqube-scan-action@v3
+      with:
+        args: >
+          -Dsonar.projectKey=customer-service
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
