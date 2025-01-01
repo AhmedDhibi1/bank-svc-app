@@ -26,12 +26,12 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 20.11.1 # Adjust based on your project's requirements
+        node-version: 20.11.1
     - name: Install Dependencies
       run: npm install
-    # Make mvnw executable
-    - name: Cache SonarQube packages
-      uses: sonarsource/sonarqube-scan-action@master
+    
+    - name: sonar scan
+      uses: SonarSource/sonarqube-scan-action@v3
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
