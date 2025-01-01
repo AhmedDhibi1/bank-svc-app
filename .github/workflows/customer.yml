@@ -35,6 +35,8 @@ jobs:
       with:
         args: >
           -Dsonar.projectKey=customer-service
+          -Dsonar.sources=customerManagementService  # Specify the source directory
+          -Dsonar.exclusions=account_service/**
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
