@@ -5,7 +5,7 @@ on:
     branches: 
       - branch3
     paths:
-      - 'customerManagementSerive/**'
+      - 'customerManagementService/**'
   pull_request:
     branches:
       - branch3
