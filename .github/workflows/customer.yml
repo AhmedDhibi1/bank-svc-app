@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./customerManagementSerive
+        working-directory: ./customerManagementService
 
     steps:
     - name: Checkout code
