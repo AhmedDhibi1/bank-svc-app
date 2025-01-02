@@ -39,18 +39,18 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 8000
-            initialDelaySeconds: 20
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8000
-            initialDelaySeconds: 30
-            periodSeconds: 15
+          #readinessProbe:
+          #  httpGet:
+          #    path: /health
+          #    port: 8000
+          #  initialDelaySeconds: 20
+          #  periodSeconds: 10
+          #livenessProbe:
+          #  httpGet:
+          #    path: /health
+          #    port: 8000
+          #  initialDelaySeconds: 30
+          #  periodSeconds: 15
 
 ---
 # Transaction Service HPA
