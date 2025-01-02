@@ -1,0 +1,43 @@
+== APP - transactions-service == INFO:     Will watch for changes in these directories: ['/home/iheb/Documents/Projects/bank-svc-app/transaction/app']
+== APP - transactions-service == INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+== APP - transactions-service == INFO:     Started reloader process [481878] using WatchFiles
+== APP - transactions-service == INFO:     Started server process [481889]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == INFO:     127.0.0.1:45636 - "GET /dapr/config HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:45648 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:45648 - "POST /transactions/ HTTP/1.1" 400 Bad Request
+== APP - transactions-service == INFO:     127.0.0.1:45648 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == [{'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED'}, {'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED'}, {'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}}, {'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED'}]
+== APP - transactions-service == [{'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit'}, {'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED'}, {'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}}, {'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b'}]
+== APP - transactions-service == INFO:     127.0.0.1:45648 - "POST /transactions/ HTTP/1.1" 200 OK
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [481889]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == INFO:     Started server process [484380]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == INFO:     127.0.0.1:33558 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == [{'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED'}, {'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED'}, {'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100}, {'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER'}, {'customer_id': '88edaf02-d912-4ae5-8df9-22da06355ab2', 'account_id': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'amount': 100, 'operation': 'debit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}}]
+== APP - transactions-service == [{'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit'}, {'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER'}, {'timestamp': {'$currentDate': {'timestamp': True}}, 'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED'}, {'from_account': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}}, {'account_id': '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b', 'amount': 100, 'operation': 'credit', 'transaction_type': 'TRANSFER', 'status': 'COMPLETED', 'timestamp': {'$currentDate': {'timestamp': True}}, 'customer_id': '88edaf02-d912-4ae5-8df9-22da06355ab2'}]
+== APP - transactions-service == INFO:     127.0.0.1:33558 - "POST /transactions/ HTTP/1.1" 200 OK
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [484380]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Started server process [485049]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == INFO:     127.0.0.1:37838 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:37838 - "POST /transactions/ HTTP/1.1" 200 OK
+
+termination signal received: shutting down
