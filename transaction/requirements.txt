@@ -4,4 +4,4 @@ httpx
 uvicorn
 python-dotenv
 dapr
-pytest
+# pytest

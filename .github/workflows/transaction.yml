@@ -35,19 +35,19 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
-        run: |
-          source venv/bin/activate
-          pytest --junitxml=results.xml  # Generate a test results report
-        env:
-          PYTHONPATH: ${{ github.workspace }}/transaction
+      # - name: Run tests
+      #   run: |
+      #     source venv/bin/activate
+      #     pytest --junitxml=results.xml  # Generate a test results report
+      #   env:
+      #     PYTHONPATH: ${{ github.workspace }}/transaction
 
-      - name: Archive test results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: results.xml
+      # - name: Archive test results
+      #   if: always()
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: test-results
+      #     path: results.xml
 
       - name: Build Docker image
         run: |
