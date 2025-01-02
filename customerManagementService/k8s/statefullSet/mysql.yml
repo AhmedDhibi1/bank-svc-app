@@ -7,8 +7,8 @@ spec:
     matchLabels:
       app: mysql
       app.kubernetes.io/name: mysql
-  serviceName: mysql
-  replicas: 1
+  serviceName: mysql-service
+  replicas: 2
   template:
     metadata:
       labels:
@@ -66,23 +66,35 @@ spec:
       containers:
       - name: mysql
         image: mysql:5.7
-        ports:
-        - containerPort: 3306
-          name: mysql
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secrets
-              key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_DATABASE
-          value: "customers"
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD
+          value: "1"
+        ports:
+        - name: mysql
+          containerPort: 3306
         volumeMounts:
         - name: data
           mountPath: /var/lib/mysql
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
+        livenessProbe:
+          exec:
+            command: ["mysqladmin", "ping"]
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+        readinessProbe:
+          exec:
+            # Check we can execute queries over TCP (skip-networking is off).
+            command: ["mysql", "-h", "127.0.0.1", "-e", "SELECT 1"]
+          initialDelaySeconds: 5
+          periodSeconds: 2
+          timeoutSeconds: 1
       - name: xtrabackup
         image: gcr.io/google-samples/xtrabackup:1.0
         ports:
@@ -136,6 +148,10 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
       volumes:
       - name: conf
         emptyDir: {}
