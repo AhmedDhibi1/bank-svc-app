@@ -31,27 +31,11 @@ spec:
         - --collation-server=utf8mb4_unicode_ci
         ports:
         - containerPort: 3306
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretRef:
-              name: mysql-secrets
-              key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_USER
-          valueFrom:
-            secretRef:
-              name: mysql-secrets
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretRef:
-              name: mysql-secrets
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            configMapRef:
-              name: mysql-config
-              key: MYSQL_DATABASE
+        envFrom:
+        - secretRef:
+            name: mysql-secrets
+        - configMapRef:
+            name: mysql-config
         volumeMounts:
         - name: mysql-storage
           mountPath: /var/lib/mysql
