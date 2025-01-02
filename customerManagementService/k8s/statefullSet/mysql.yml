@@ -23,10 +23,9 @@ spec:
       containers:
       - name: mysql
         image: mysql:8
-        command:
-        - "mysqld"
+        #command:
+        #- "mysqld"
         args:
-        - --default-authentication-plugin=mysql_native_password
         - --character-set-server=utf8mb4
         - --collation-server=utf8mb4_unicode_ci
         ports:
