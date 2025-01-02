@@ -4,14 +4,14 @@ metadata:
   name: postgres-pv
 spec:
   capacity:
-    storage: 10Gi  # Specify the storage size
+    storage: 5Gi  # Specify the storage size
   accessModes:
     - ReadWriteOnce  # Define the access mode
   persistentVolumeReclaimPolicy: Retain  # Retain the volume even if the PVC is deleted
   storageClassName: managed-premium  # Use a storage class provided by AKS
   azureDisk:
     diskName: postgres-disk
-    diskURI: /subscriptions/89f4b98b-93e0-4a88-b7e0-31247143af92/resourceGroups/application/providers/Microsoft.Compute/disks/postgres-disk
+    diskURI: /subscriptions/33b49643-8389-49a6-9373-8442b1f2d3f5/resourceGroups/application/providers/Microsoft.Compute/disks/postgres-disk
     cachingMode: ReadWrite
     kind: Managed
     fsType: ext4
