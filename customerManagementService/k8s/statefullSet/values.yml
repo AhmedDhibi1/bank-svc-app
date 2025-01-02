@@ -26,3 +26,4 @@ primary:
 
 volumePermissions:
   enabled: true  # This ensures proper permissions on the mounted volume
+  
