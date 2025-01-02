@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: customer-service-config
 data:
-  MYSQL_HOST: mysql-service
+  MYSQL_HOST: mysql
   DB_PORT: "3306"
   customers_db_name: customers
   customers_db_mysql: admin
