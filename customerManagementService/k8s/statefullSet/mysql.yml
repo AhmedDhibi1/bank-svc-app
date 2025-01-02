@@ -23,16 +23,14 @@ spec:
         args:
           - |
             set -ex
-            mkdir -p /var/lib/mysql
-            chown -R 999:999 /var/lib/mysql
-            chmod -R 755 /var/lib/mysql
-            # Only initialize if data directory is empty
-            if [ ! "$(ls -A /var/lib/mysql)" ]; then
-              echo "Initializing MySQL data directory"
+            # Check specifically for MySQL system files
+            if [ ! -d "/var/lib/mysql/mysql" ]; then
+              echo "MySQL system tables not found. Initializing..."
+              rm -rf /var/lib/mysql/*
               mysqld --initialize-insecure --datadir=/var/lib/mysql
               echo "MySQL initialization complete"
             else
-              echo "MySQL data directory already exists"
+              echo "MySQL system tables found"
             fi
         volumeMounts:
         - name: mysql-storage
