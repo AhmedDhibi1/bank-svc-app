@@ -8,14 +8,16 @@ spec:
     defaultAction: deny
     trustDomain: "public"
     policies:
-    - appId: account-service
-      defaultAction: allow
-      trustDomain: "public"
-      operations:
-      - name: statestore-postgres
-        httpVerb: ["GET", "POST", "PUT", "DELETE"]
-      - name: pubsub
-        httpVerb: ["POST", "PUT"]
+      - appId: account-service
+        defaultAction: allow
+        trustDomain: "public"
+        operations:
+          - name: statestore-postgres
+            httpVerb: ["GET", "POST", "PUT", "DELETE"]
+            action: allow
+          - name: pubsub
+            httpVerb: ["POST", "PUT"]
+            action: allow
 
 ---
 # Customer service allowed components and scopes
@@ -28,14 +30,16 @@ spec:
     defaultAction: deny
     trustDomain: "public"
     policies:
-    - appId: customer-service
-      defaultAction: allow
-      trustDomain: "public"
-      operations:
-      - name: statestore-mysql
-        httpVerb: ["GET", "POST", "PUT", "DELETE"]
-      - name: pubsub
-        httpVerb: ["POST", "PUT"]
+      - appId: customer-service
+        defaultAction: allow
+        trustDomain: "public"
+        operations:
+          - name: statestore-mysql
+            httpVerb: ["GET", "POST", "PUT", "DELETE"]
+            action: allow
+          - name: pubsub
+            httpVerb: ["POST", "PUT"]
+            action: allow
 
 ---
 # Transaction service allowed components and scopes
@@ -48,11 +52,13 @@ spec:
     defaultAction: deny
     trustDomain: "public"
     policies:
-    - appId: transaction-service
-      defaultAction: allow
-      trustDomain: "public"
-      operations:
-      - name: statestore-mongodb
-        httpVerb: ["GET", "POST", "PUT", "DELETE"]
-      - name: pubsub
-        httpVerb: ["POST", "PUT"]
+      - appId: transaction-service
+        defaultAction: allow
+        trustDomain: "public"
+        operations:
+          - name: statestore-mongodb
+            httpVerb: ["GET", "POST", "PUT", "DELETE"]
+            action: allow
+          - name: pubsub
+            httpVerb: ["POST", "PUT"]
+            action: allow

@@ -9,9 +9,6 @@ spec:
       endpointAddress: "http://zipkin:9411/api/v2/spans"
   metric:
     enabled: true
-  serviceInvocation:
-    maxRetries: 3
-    maxRetryBackoffMs: 3000
   features:
     - name: ServiceInvocation
       enabled: true
@@ -19,4 +16,3 @@ spec:
       enabled: true
     - name: PubSub
       enabled: true
-
