@@ -83,27 +83,6 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
-          name: mysql-storage
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "500m"
-          limits:
-            memory: "1Gi"
-            cpu: "1000m"
-        livenessProbe:
-          exec:
-            command: ["mysqladmin", "ping"]
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          timeoutSeconds: 5
-        readinessProbe:
-          exec:
-            # Check we can execute queries over TCP (skip-networking is off).
-            command: ["mysql", "-h", "127.0.0.1", "-e", "SELECT 1"]
-          initialDelaySeconds: 5
-          periodSeconds: 2
-          timeoutSeconds: 1
       - name: xtrabackup
         image: gcr.io/google-samples/xtrabackup:1.0
         ports:
@@ -157,16 +136,12 @@ spec:
           subPath: mysql
         - name: conf
           mountPath: /etc/mysql/conf.d
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
       volumes:
       - name: conf
         emptyDir: {}
       - name: config-map
         configMap:
           name: mysql-conf
-      - name: mysql-storage
+      - name: data
         persistentVolumeClaim:
           claimName: mysql-pvc
