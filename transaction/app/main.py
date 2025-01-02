@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from dapr.clients import DaprClient
-from core.config import settings
-from db.mongodb import db
-from api.endpoints import transaction
+from app.core.config import settings
+from app.db.mongodb import db
+from app.api.endpoints import transaction
 
 app = FastAPI(title="Banking Transaction Service")
 
