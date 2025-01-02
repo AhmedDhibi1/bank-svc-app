@@ -19,10 +19,10 @@ spec:
       labels:
         app: transaction-service
       annotations:
-        dapr.io/sidecar-liveness-probe-delay-seconds: "30"
-        dapr.io/sidecar-liveness-probe-timeout-seconds: "10"
-        dapr.io/sidecar-readiness-probe-delay-seconds: "30"
-        dapr.io/sidecar-readiness-probe-timeout-seconds: "10"
+        dapr.io/sidecar-liveness-probe-delay-seconds: "90"
+        dapr.io/sidecar-liveness-probe-timeout-seconds: "50"
+        dapr.io/sidecar-readiness-probe-delay-seconds: "90"
+        dapr.io/sidecar-readiness-probe-timeout-seconds: "50"
         dapr.io/enabled: "true"
         dapr.io/app-id: "transaction-service"
         dapr.io/app-port: "8000"
