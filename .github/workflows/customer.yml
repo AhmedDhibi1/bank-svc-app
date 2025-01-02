@@ -123,11 +123,9 @@ jobs:
     - name: Apply postgres service
       run: |
         kubectl apply -f ./customerManagementService/k8s/services/mysql-service.yml
-        sleep 10 # Wait for 1 minute
     - name: Apply account service
       run: |
         kubectl apply -f ./customerManagementService/k8s/services/customer.yml
-        sleep 10 # Wait for 1 minute
     #- name: apply redis service
     #  run: |
     #    kubectl apply -f ./customerManagementService/k8s/services/redis.yml
@@ -173,15 +171,12 @@ jobs:
     - name: Apply secrets
       run: |
         kubectl apply -f ./customerManagementService/k8s/secrets/
-        sleep 10 # Wait for 1 minute
     - name: Apply configmaps
       run: |
         kubectl apply -f ./customerManagementService/k8s/configmaps/
-        sleep 10 # Wait for 1 minute
     - name : Apply pv
       run: |
         kubectl apply -f ./customerManagementService/k8s/pvc/pv.yml
-        sleep 30 # Wait for 1 minut
     #- name: delete all pods and pvc
     #  run: |
        # kubectl delete pvc postgres-pvc
@@ -197,12 +192,11 @@ jobs:
     - name: Apply persistent volume claims (PVCs)
       run: |
         kubectl apply -f ./customerManagementService/k8s/pvc/mysql-pvc.yml
-        sleep 30 # Wait for 1.5 minute
     - name: Apply stateful sets
       run: |
         kubectl apply -f ./customerManagementService/k8s/statefullSet/
         kubectl wait --for=condition=ready pod -l app=mysql --timeout=120s
-        sleep 30 # Wait for 2 minute
+        sleep 45 # Wait for 2 minute
     - name: Apply deployments
       run: |
         kubectl apply -f ./customerManagementService/k8s/deployments/
