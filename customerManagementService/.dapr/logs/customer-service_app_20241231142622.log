@@ -1,0 +1,15 @@
+== APP - customer-service == [nodemon] 3.1.9
+== APP - customer-service == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service == [nodemon] watching path(s): *.*
+== APP - customer-service == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T13:26:24.795Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T13:26:24.810Z INFO [HTTPServer, HTTPServer] Listening on 5002
+== APP - customer-service == 2024-12-31T13:26:24.811Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T13:26:24.922Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == Express server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+
+termination signal received: shutting down

@@ -1,0 +1,62 @@
+== APP - customer-service == [nodemon] 3.1.9
+== APP - customer-service == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service == [nodemon] watching path(s): *.*
+== APP - customer-service == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:16
+== APP - customer-service == server.pubsub.subscribe(pubSubName, pubSubTopic, (data) =>
+== APP - customer-service == ^
+== APP - customer-service == 
+== APP - customer-service == ReferenceError: server is not defined
+== APP - customer-service ==     at Object.<anonymous> (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:16:1)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1469:14)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:16
+== APP - customer-service == server.pubsub.subscribe(pubSubName, pubSubTopic, (data) =>
+== APP - customer-service == ^
+== APP - customer-service == 
+== APP - customer-service == ReferenceError: server is not defined
+== APP - customer-service ==     at Object.<anonymous> (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:16:1)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1469:14)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:16
+== APP - customer-service == server.pubsub.subscribe(pubSubName, pubSubTopic, (data) =>
+== APP - customer-service == ^
+== APP - customer-service == 
+== APP - customer-service == ReferenceError: server is not defined
+== APP - customer-service ==     at Object.<anonymous> (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:16:1)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1469:14)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+
+termination signal received: shutting down

@@ -1,0 +1,43 @@
+== APP - customer-service-dapr-server == [nodemon] 3.1.9
+== APP - customer-service-dapr-server == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service-dapr-server == [nodemon] watching path(s): *.*
+== APP - customer-service-dapr-server == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service-dapr-server == [nodemon] starting `node app.js`
+== APP - customer-service-dapr-server == 2024-12-31T02:40:59.344Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service-dapr-server == node:events:497
+== APP - customer-service-dapr-server ==       throw er; // Unhandled 'error' event
+== APP - customer-service-dapr-server ==       ^
+== APP - customer-service-dapr-server == 
+== APP - customer-service-dapr-server == Error: listen EADDRINUSE: address already in use :::8083
+== APP - customer-service-dapr-server ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service-dapr-server ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service-dapr-server ==     at Server.listen (node:net:2063:7)
+== APP - customer-service-dapr-server ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service-dapr-server ==     at HTTPServer.start (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/@dapr/dapr/implementation/Server/HTTPServer/HTTPServer.js:78:49)
+== APP - customer-service-dapr-server ==     at DaprServer.start (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/@dapr/dapr/implementation/Server/DaprServer.js:87:31)
+== APP - customer-service-dapr-server ==     at startDaprSubscription (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:40:20)
+== APP - customer-service-dapr-server ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:46:9)
+== APP - customer-service-dapr-server ==     at Object.<anonymous> (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:56:1)
+== APP - customer-service-dapr-server ==     at Module._compile (node:internal/modules/cjs/loader:1469:14)
+== APP - customer-service-dapr-server == Emitted 'error' event on Server instance at:
+== APP - customer-service-dapr-server ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service-dapr-server ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service-dapr-server ==   code: 'EADDRINUSE',
+== APP - customer-service-dapr-server ==   errno: -98,
+== APP - customer-service-dapr-server ==   syscall: 'listen',
+== APP - customer-service-dapr-server ==   address: '::',
+== APP - customer-service-dapr-server ==   port: 8083
+== APP - customer-service-dapr-server == }
+== APP - customer-service-dapr-server == 
+== APP - customer-service-dapr-server == Node.js v20.17.0
+== APP - customer-service-dapr-server == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service-dapr-server == [nodemon] restarting due to changes...
+== APP - customer-service-dapr-server == [nodemon] starting `node app.js`
+== APP - customer-service-dapr-server == 2024-12-31T02:42:23.127Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service-dapr-server == 2024-12-31T02:42:23.134Z INFO [HTTPServer, HTTPServer] Listening on 3505
+== APP - customer-service-dapr-server == 2024-12-31T02:42:23.135Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service-dapr-server == 2024-12-31T02:42:23.169Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service-dapr-server == Dapr subscription started.
+== APP - customer-service-dapr-server == Express server is listening on PORT: 8083
+
+termination signal received: shutting down

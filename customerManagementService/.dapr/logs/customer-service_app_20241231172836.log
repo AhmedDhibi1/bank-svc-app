@@ -1,0 +1,502 @@
+== APP - customer-service == [nodemon] 3.1.9
+== APP - customer-service == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service == [nodemon] watching path(s): *.*
+== APP - customer-service == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '428',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-a0da31b1706851ecdbaa39b3a6c68b47-e4b19d8d0de9082e-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: { customerId: '12345' },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '4a0343a5-67a0-4369-b0a0-a7bd41398197',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T15:16:06+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-a0da31b1706851ecdbaa39b3a6c68b47-2019c79f84bf7fad-01',
+== APP - customer-service ==   traceparent: '00-a0da31b1706851ecdbaa39b3a6c68b47-2019c79f84bf7fad-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: { customerId: '12345' }
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '428',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-2211ced51435fba510fbad5e8a88d360-694ffdc4947d1621-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: { customerId: '12345' },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '419ddb8f-21a4-450d-bf0f-6cd802661e2f',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T15:32:08+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-2211ced51435fba510fbad5e8a88d360-d4655e815d547010-01',
+== APP - customer-service ==   traceparent: '00-2211ced51435fba510fbad5e8a88d360-d4655e815d547010-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: { customerId: '12345' }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '649',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-03e3ab2d2befd807961689bdfb9593a3-785345e5a907e7f0-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4200,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '0a17e8b1-d166-484a-be80-1d62da0dcecf',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T15:32:51+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-03e3ab2d2befd807961689bdfb9593a3-7c4badb0a81d773b-01',
+== APP - customer-service ==   traceparent: '00-03e3ab2d2befd807961689bdfb9593a3-7c4badb0a81d773b-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4200,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '428',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-c7e2cec8441c70900dd0879d8b72c1ff-2fddd50cce6ec62d-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: { customerId: '12345' },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '6b43aa8a-f3f6-4d60-ad18-04e086622f35',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T15:32:09+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-c7e2cec8441c70900dd0879d8b72c1ff-b0ec63e83af7b232-01',
+== APP - customer-service ==   traceparent: '00-c7e2cec8441c70900dd0879d8b72c1ff-b0ec63e83af7b232-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: { customerId: '12345' }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '649',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-988c681076227a274536de79bc78b6f4-46baef8756ca12bb-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4200,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: 'e3a22e7e-83de-4c42-809e-60eecec7870b',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:31:06+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-988c681076227a274536de79bc78b6f4-8843556c1c9fb17e-01',
+== APP - customer-service ==   traceparent: '00-988c681076227a274536de79bc78b6f4-8843556c1c9fb17e-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4200,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '653',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-3a2cba5be06a42c374d7ee929c77aad8-9dd74a61623f3d9c-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4300,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: 'a0eb7d8d-ff45-417e-bced-b85b58aed603',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'transactions-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:31:26+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-3a2cba5be06a42c374d7ee929c77aad8-00ef030676de3d72-01',
+== APP - customer-service ==   traceparent: '00-3a2cba5be06a42c374d7ee929c77aad8-00ef030676de3d72-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4300,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Executing (default): SELECT `id`, `name`, `phone`, `address`, `email`, `password`, `createdAt`, `updatedAt` FROM `customers` AS `customer` WHERE `customer`.`id` = '88edaf02-d912-4ae5-8df9-22da06355ab2';
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '653',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-059c9cd7e194cb28f1ef748626360a03-7ad2336b9613e394-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4400,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '163177d1-e2f5-43f6-af51-5a0a6f460c28',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'transactions-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:36:58+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-059c9cd7e194cb28f1ef748626360a03-7a768b8e7997567d-01',
+== APP - customer-service ==   traceparent: '00-059c9cd7e194cb28f1ef748626360a03-7a768b8e7997567d-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4400,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '651',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-ebb9d38c4e5f7601350d9c63dc71d852-69a7a53b04bedb56-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4500,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '094712fb-4701-428d-9ae6-23c90042e37e',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:38:50+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-ebb9d38c4e5f7601350d9c63dc71d852-2ff3918c3e568556-01',
+== APP - customer-service ==   traceparent: '00-ebb9d38c4e5f7601350d9c63dc71d852-2ff3918c3e568556-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4500,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '651',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-70ca52880b102031478c3aba72424fdf-2a9946192fc0aedb-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4500,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '1874dc14-89aa-4087-9266-a9ee65fcb632',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:42:28+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-70ca52880b102031478c3aba72424fdf-1fd107938c854e4f-01',
+== APP - customer-service ==   traceparent: '00-70ca52880b102031478c3aba72424fdf-1fd107938c854e4f-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4500,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '651',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-a7351a1f4bca75002d8c821c32097aa9-b57c8222cc0eedd8-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4500,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '88593f14-c26c-4847-a839-99f6f7efa115',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:43:30+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-a7351a1f4bca75002d8c821c32097aa9-2e9d66beea4f9d1e-01',
+== APP - customer-service ==   traceparent: '00-a7351a1f4bca75002d8c821c32097aa9-2e9d66beea4f9d1e-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4500,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '651',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-cdac0ec8e5f5671c2285db7894d2d266-36ee7332d2d0cd6b-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4500,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '6e432c90-70ed-4b7f-8902-3dcd05197f59',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:44:29+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-cdac0ec8e5f5671c2285db7894d2d266-c1184dd4a29108f0-01',
+== APP - customer-service ==   traceparent: '00-cdac0ec8e5f5671c2285db7894d2d266-c1184dd4a29108f0-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4500,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '651',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-7fe6bab3d905de947fee0b6d87169dd9-14f54c3c61cc144c-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4500,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '05b5d969-bbe9-4682-b805-82180f749a3d',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T17:52:52+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-7fe6bab3d905de947fee0b6d87169dd9-9e1515a3254e5ea2-01',
+== APP - customer-service ==   traceparent: '00-7fe6bab3d905de947fee0b6d87169dd9-9e1515a3254e5ea2-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4500,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '651',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-cd58db53aafe3e6402e43070c874be27-ad1285155b5d468d-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==     accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 4300,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '253b0e74-46a9-4c88-9347-7a1e2412cf3a',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T18:10:14+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-cd58db53aafe3e6402e43070c874be27-b8e875789e1867da-01',
+== APP - customer-service ==   traceparent: '00-cd58db53aafe3e6402e43070c874be27-b8e875789e1867da-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3',
+== APP - customer-service ==   accountOpeningDate: '2024-12-29T21:31:46.606+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 4300,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-29T21:31:46.606+00:00'
+== APP - customer-service == }
+== APP - customer-service == Headers: {
+== APP - customer-service ==   host: '127.0.0.1:8081',
+== APP - customer-service ==   'user-agent': 'Go-http-client/1.1',
+== APP - customer-service ==   'content-length': '651',
+== APP - customer-service ==   'content-type': 'application/cloudevents+json',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   traceparent: '00-4a9ac4ded0ba65265ddaecde60ac9a9a-c17ccabd226ae239-01',
+== APP - customer-service ==   'accept-encoding': 'gzip'
+== APP - customer-service == }
+== APP - customer-service == Raw Body: {
+== APP - customer-service ==   data: {
+== APP - customer-service ==     accountId: '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b',
+== APP - customer-service ==     accountOpeningDate: '2024-12-30T12:40:55.040+00:00',
+== APP - customer-service ==     accountType: 'SAVINGS',
+== APP - customer-service ==     balance: 8600,
+== APP - customer-service ==     customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==     lastActivity: '2024-12-30T12:40:55.040+00:00'
+== APP - customer-service ==   },
+== APP - customer-service ==   datacontenttype: 'application/json',
+== APP - customer-service ==   id: '8a07e0e0-9ed3-4df2-8b17-39143681f15b',
+== APP - customer-service ==   pubsubname: 'pubsub',
+== APP - customer-service ==   source: 'accounting-service',
+== APP - customer-service ==   specversion: '1.0',
+== APP - customer-service ==   time: '2024-12-31T18:10:16+01:00',
+== APP - customer-service ==   topic: 'updateAccount',
+== APP - customer-service ==   traceid: '00-4a9ac4ded0ba65265ddaecde60ac9a9a-888adf6064259271-01',
+== APP - customer-service ==   traceparent: '00-4a9ac4ded0ba65265ddaecde60ac9a9a-888adf6064259271-01',
+== APP - customer-service ==   tracestate: '',
+== APP - customer-service ==   type: 'com.dapr.event.sent'
+== APP - customer-service == }
+== APP - customer-service == Received message on updateAccount: {
+== APP - customer-service ==   accountId: '8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b',
+== APP - customer-service ==   accountOpeningDate: '2024-12-30T12:40:55.040+00:00',
+== APP - customer-service ==   accountType: 'SAVINGS',
+== APP - customer-service ==   balance: 8600,
+== APP - customer-service ==   customerId: '88edaf02-d912-4ae5-8df9-22da06355ab2',
+== APP - customer-service ==   lastActivity: '2024-12-30T12:40:55.040+00:00'
+== APP - customer-service == }
+
+termination signal received: shutting down

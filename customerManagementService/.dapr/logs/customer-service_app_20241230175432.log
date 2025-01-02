@@ -1,0 +1,7 @@
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == Executing (default): SELECT `id`, `name`, `phone`, `address`, `email`, `password`, `createdAt`, `updatedAt` FROM `customers` AS `customer` WHERE `customer`.`id` = '88edaf02-d912-4ae5-8df9-22da06355ab2';
+
+termination signal received: shutting down

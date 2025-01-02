@@ -1,0 +1,324 @@
+== APP - customer-service == [nodemon] 3.1.9
+== APP - customer-service == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service == [nodemon] watching path(s): *.*
+== APP - customer-service == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == (node:746569) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+== APP - customer-service == (Use `node --trace-warnings ...` to show where the warning was created)
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:52
+== APP - customer-service == await server.start();
+== APP - customer-service == ^^^^^
+== APP - customer-service == 
+== APP - customer-service == SyntaxError: await is only valid in async functions and the top level bodies of modules
+== APP - customer-service ==     at wrapSafe (node:internal/modules/cjs/loader:1378:20)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1428:41)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == (node:747793) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+== APP - customer-service == (Use `node --trace-warnings ...` to show where the warning was created)
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:52
+== APP - customer-service == await server.start();
+== APP - customer-service == ^^^^^
+== APP - customer-service == 
+== APP - customer-service == SyntaxError: await is only valid in async functions and the top level bodies of modules
+== APP - customer-service ==     at wrapSafe (node:internal/modules/cjs/loader:1378:20)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1428:41)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T00:53:56.298Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T00:53:56.305Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T00:53:56.306Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T00:53:56.368Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::8081
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:56:7)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 8081
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T00:54:17.038Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T00:54:17.045Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T00:54:17.046Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T00:54:17.096Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T00:56:16.821Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T00:56:16.827Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T00:56:16.828Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T00:56:16.875Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == Dapr server started
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::8081
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:57:7)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 8081
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:9
+== APP - customer-service == app.use(bodyParser.json());
+== APP - customer-service ==         ^
+== APP - customer-service == 
+== APP - customer-service == ReferenceError: bodyParser is not defined
+== APP - customer-service ==     at Object.<anonymous> (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:9:9)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1469:14)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:9
+== APP - customer-service == app.use(bodyParser.json());
+== APP - customer-service ==         ^
+== APP - customer-service == 
+== APP - customer-service == ReferenceError: bodyParser is not defined
+== APP - customer-service ==     at Object.<anonymous> (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:9:9)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1469:14)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == /home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:9
+== APP - customer-service == app.use(bodyParser.json());
+== APP - customer-service ==         ^
+== APP - customer-service == 
+== APP - customer-service == ReferenceError: bodyParser is not defined
+== APP - customer-service ==     at Object.<anonymous> (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:9:9)
+== APP - customer-service ==     at Module._compile (node:internal/modules/cjs/loader:1469:14)
+== APP - customer-service ==     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+== APP - customer-service ==     at Module.load (node:internal/modules/cjs/loader:1288:32)
+== APP - customer-service ==     at Module._load (node:internal/modules/cjs/loader:1104:12)
+== APP - customer-service ==     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+== APP - customer-service ==     at node:internal/main/run_main_module:28:49
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == Executing (default): SELECT `id`, `name`, `phone`, `address`, `email`, `password`, `createdAt`, `updatedAt` FROM `customers` AS `customer` WHERE `customer`.`id` = '88edaf02-d912-4ae5-8df9-22da06355ab2';
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T01:12:21.678Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T01:12:21.684Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T01:12:21.684Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T01:12:21.711Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::8081
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:38:7)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 8081
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T01:12:50.181Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T01:12:50.188Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T01:12:50.189Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T01:12:50.216Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T01:15:06.177Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T01:15:06.183Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T01:15:06.183Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T01:15:06.209Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::8081
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:36:7)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 8081
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T01:15:26.925Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T01:15:26.930Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T01:15:26.930Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T01:15:26.950Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::8081
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:31:7)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 8081
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T01:15:35.123Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T01:15:35.128Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T01:15:35.129Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T01:15:35.150Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::8081
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:31:7)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 8081
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == Executing (default): SELECT `id`, `name`, `phone`, `address`, `email`, `password`, `createdAt`, `updatedAt` FROM `customers` AS `customer` WHERE `customer`.`id` = '88edaf02-d912-4ae5-8df9-22da06355ab2';
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == Server is listening on PORT: 8081
+== APP - customer-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
+== APP - customer-service == Executing (default): SHOW INDEX FROM `customers`
+== APP - customer-service == Models synchronized with the database.
+
+termination signal received: shutting down

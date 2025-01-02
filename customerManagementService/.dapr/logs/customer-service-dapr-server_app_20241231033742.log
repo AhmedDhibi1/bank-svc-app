@@ -1,0 +1,34 @@
+== APP - customer-service-dapr-server == [nodemon] 3.1.9
+== APP - customer-service-dapr-server == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service-dapr-server == [nodemon] watching path(s): *.*
+== APP - customer-service-dapr-server == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service-dapr-server == [nodemon] starting `node app.js`
+== APP - customer-service-dapr-server == 2024-12-31T02:37:43.071Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service-dapr-server == 2024-12-31T02:37:43.077Z INFO [HTTPServer, HTTPServer] Listening on 8083
+== APP - customer-service-dapr-server == 2024-12-31T02:37:43.077Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service-dapr-server == 2024-12-31T02:37:43.105Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service-dapr-server == node:events:497
+== APP - customer-service-dapr-server ==       throw er; // Unhandled 'error' event
+== APP - customer-service-dapr-server ==       ^
+== APP - customer-service-dapr-server == 
+== APP - customer-service-dapr-server == Error: listen EADDRINUSE: address already in use :::8082
+== APP - customer-service-dapr-server ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service-dapr-server ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service-dapr-server ==     at Server.listen (node:net:2063:7)
+== APP - customer-service-dapr-server ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service-dapr-server ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:49:7)
+== APP - customer-service-dapr-server ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service-dapr-server == Emitted 'error' event on Server instance at:
+== APP - customer-service-dapr-server ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service-dapr-server ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service-dapr-server ==   code: 'EADDRINUSE',
+== APP - customer-service-dapr-server ==   errno: -98,
+== APP - customer-service-dapr-server ==   syscall: 'listen',
+== APP - customer-service-dapr-server ==   address: '::',
+== APP - customer-service-dapr-server ==   port: 8082
+== APP - customer-service-dapr-server == }
+== APP - customer-service-dapr-server == 
+== APP - customer-service-dapr-server == Node.js v20.17.0
+== APP - customer-service-dapr-server == [nodemon] app crashed - waiting for file changes before starting...
+
+termination signal received: shutting down

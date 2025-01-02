@@ -1,0 +1,12 @@
+== APP - customer-service == [nodemon] 3.1.9
+== APP - customer-service == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service == [nodemon] watching path(s): *.*
+== APP - customer-service == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T02:36:09.447Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T02:36:09.454Z INFO [HTTPServer, HTTPServer] Listening on 8081
+== APP - customer-service == 2024-12-31T02:36:09.454Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T02:36:09.487Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == Express server is listening on http://127.0.0.1:8082
+
+termination signal received: shutting down

@@ -1,0 +1,73 @@
+== APP - customer-service == [nodemon] 3.1.9
+== APP - customer-service == [nodemon] to restart at any time, enter `rs`
+== APP - customer-service == [nodemon] watching path(s): *.*
+== APP - customer-service == [nodemon] watching extensions: js,mjs,cjs,json
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T02:43:36.891Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T02:43:36.896Z INFO [HTTPServer, HTTPServer] Listening on 3505
+== APP - customer-service == 2024-12-31T02:43:36.897Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T02:43:36.925Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == Dapr subscription started.
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::3505
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:50:9)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 3505
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T02:54:19.771Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T02:54:19.776Z INFO [HTTPServer, HTTPServer] Listening on 3505
+== APP - customer-service == 2024-12-31T02:54:19.776Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T02:54:19.803Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == Dapr subscription started.
+== APP - customer-service == node:events:497
+== APP - customer-service ==       throw er; // Unhandled 'error' event
+== APP - customer-service ==       ^
+== APP - customer-service == 
+== APP - customer-service == Error: listen EADDRINUSE: address already in use :::3505
+== APP - customer-service ==     at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+== APP - customer-service ==     at listenInCluster (node:net:1961:12)
+== APP - customer-service ==     at Server.listen (node:net:2063:7)
+== APP - customer-service ==     at Function.listen (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/node_modules/express/lib/application.js:635:24)
+== APP - customer-service ==     at startServer (/home/iheb/Documents/Projects/bank-svc-app/customerManagementService/app.js:50:9)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+== APP - customer-service == Emitted 'error' event on Server instance at:
+== APP - customer-service ==     at emitErrorNT (node:net:1940:8)
+== APP - customer-service ==     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+== APP - customer-service ==   code: 'EADDRINUSE',
+== APP - customer-service ==   errno: -98,
+== APP - customer-service ==   syscall: 'listen',
+== APP - customer-service ==   address: '::',
+== APP - customer-service ==   port: 3505
+== APP - customer-service == }
+== APP - customer-service == 
+== APP - customer-service == Node.js v20.17.0
+== APP - customer-service == [nodemon] app crashed - waiting for file changes before starting...
+== APP - customer-service == [nodemon] restarting due to changes...
+== APP - customer-service == [nodemon] starting `node app.js`
+== APP - customer-service == 2024-12-31T02:54:43.929Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
+== APP - customer-service == 2024-12-31T02:54:43.936Z INFO [HTTPServer, HTTPServer] Listening on 3506
+== APP - customer-service == 2024-12-31T02:54:43.937Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
+== APP - customer-service == 2024-12-31T02:54:43.966Z INFO [HTTPClient, HTTPClient] Sidecar Started
+== APP - customer-service == Dapr subscription started.
+== APP - customer-service == Express server is listening on PORT: 3505
+
+termination signal received: shutting down
