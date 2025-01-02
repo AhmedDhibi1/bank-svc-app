@@ -25,35 +25,36 @@ spec:
         dapr.io/http-port: "3502"
     spec:
       containers:
-      - name: transaction-service
-        image: ahmeddhibi/transaction-service:latest
-        ports:
-        - containerPort: 8000
-        envFrom:
-        - configMapRef:
-            name: transaction-service-config
-        resources:
-          requests:
-            cpu: "200m"
-            memory: "256Mi"
-          limits:
-            cpu: "500m"
-            memory: "512Mi"
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8000
-          initialDelaySeconds: 20
-          periodSeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8000
-          initialDelaySeconds: 30
-          periodSeconds: 15
+        - name: transaction-service
+          image: ahmeddhibi/transaction-service:latest
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: transaction-service-config
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 15
 
 ---
 # Transaction Service HPA
+#
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -66,9 +67,9 @@ spec:
   minReplicas: 2
   maxReplicas: 5
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 70
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
