@@ -13,18 +13,21 @@ spec:
       labels:
         app: mysql
     spec:
-      initContainers:
-      - name: wait-for-pvc
-        image: busybox
-        command: ['sh', '-c', 'until [ -e /var/lib/mysql ]; do echo waiting for pvc; sleep 2; done;']
-        volumeMounts:
-        - name: mysql-storage
-          mountPath: /var/lib/mysql
+      #initContainers:
+      #- name: wait-for-pvc
+      #  image: busybox
+      #  command: ['sh', '-c', 'until [ -e /var/lib/mysql ]; do echo waiting for pvc; sleep 2; done;']
+      #  volumeMounts:
+      #  - name: mysql-storage
+      #    mountPath: /var/lib/mysql
       containers:
       - name: mysql
         image: mysql:8
-        #command:
-        #- "mysqld"
+        command:
+          - "sh"
+          - "-c"
+          - |
+              mysql_upgrade -u root -p$MYSQL_ROOT_PASSWORD && mysqld
         args:
         - --character-set-server=utf8mb4
         - --collation-server=utf8mb4_unicode_ci
