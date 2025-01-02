@@ -16,10 +16,10 @@ spec:
       initContainers:
       - name: wait-for-pvc
         image: busybox
-        command: ['sh', '-c', 'until [ -e /var/lib/mysql/data ]; do echo waiting for pvc; sleep 2; done;']
+        command: ['sh', '-c', 'until [ -e /var/lib/mysql ]; do echo waiting for pvc; sleep 2; done;']
         volumeMounts:
         - name: mysql-storage
-          mountPath: /var/lib/mysql/data
+          mountPath: /var/lib/mysql
       containers:
       - name: mysql
         image: mysql:8
@@ -36,7 +36,7 @@ spec:
             name: mysql-config
         volumeMounts:
         - name: mysql-storage
-          mountPath: /var/lib/mysql/data
+          mountPath: /var/lib/mysql
           subPath: mysql
       volumes:
       - name: mysql-storage
