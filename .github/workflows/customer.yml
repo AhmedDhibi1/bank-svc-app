@@ -192,6 +192,9 @@ jobs:
     - name: Apply persistent volume claims (PVCs)
       run: |
         kubectl apply -f ./customerManagementService/k8s/pvc/mysql-pvc.yml
+    - name: uninstall mysql if it exists
+      run: |
+        helm uninstall mysql || echo "MySQL not installed previously, skipping uninstall"
     - name: Install MySQL with Helm
       run: |
         helm repo add bitnami https://charts.bitnami.com/bitnami
