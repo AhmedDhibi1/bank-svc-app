@@ -23,17 +23,35 @@ spec:
       containers:
       - name: mysql
         image: mysql:8
+        command:
+        - "mysqld"
         args:
         - --default-authentication-plugin=mysql_native_password
         - --character-set-server=utf8mb4
         - --collation-server=utf8mb4_unicode_ci
         ports:
         - containerPort: 3306
-        envFrom:
-        - secretRef:
-            name: mysql-secrets
-        - configMapRef:
-            name: mysql-config
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretRef:
+              name: mysql-secrets
+              key: MYSQL_ROOT_PASSWORD
+        - name: MYSQL_USER
+          valueFrom:
+            secretRef:
+              name: mysql-secrets
+              key: MYSQL_USER
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretRef:
+              name: mysql-secrets
+              key: MYSQL_PASSWORD
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapRef:
+              name: mysql-config
+              key: MYSQL_DATABASE
         volumeMounts:
         - name: mysql-storage
           mountPath: /var/lib/mysql
