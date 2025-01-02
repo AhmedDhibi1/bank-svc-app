@@ -12,7 +12,7 @@ class TransactionService:
         self.logger = logging.getLogger(__name__)
 
     async def get_account(self, account_id: str):
-        ACCOUNT_SERVICE_URL = "http://accounting-service.default.svc.cluster.local/v1.0/invoke/accounting-service/method/account"
+        ACCOUNT_SERVICE_URL = "http://localhost:3501/v1.0/invoke/account-service/method/account"
         url = f"{ACCOUNT_SERVICE_URL}/{account_id}"
         async with httpx.AsyncClient() as client:
             response = await client.get(url)
@@ -25,7 +25,7 @@ class TransactionService:
                 raise HTTPException(status_code=response.status_code, detail="Account not found")
     async def update_account(self, account_id: str, account_data: dict):
     
-        ACCOUNT_SERVICE_URL = "http://localhost:3501/v1.0/invoke/accounting-service/method/account"
+        ACCOUNT_SERVICE_URL = "http://localhost:3501/v1.0/invoke/account-service/method/account"
         url = f"{ACCOUNT_SERVICE_URL}/{account_id}"
 
         async with httpx.AsyncClient() as client:

@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: transaction-service-config
 data:
-  MONGODB_URI:mongodb+srv://root:admin@cluster0.buv7v.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+  MONGODB_URI: mongodb+srv://root:admin@cluster0.buv7v.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
