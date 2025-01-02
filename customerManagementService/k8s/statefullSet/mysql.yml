@@ -1,47 +1,37 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
+ name: mysql
 spec:
-  serviceName: mysql-service
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mysql
-  template:
-    metadata:
-      labels:
-        app: mysql
-    spec:
-      initContainers:
-      - name: wait-for-pvc
-        image: busybox
-        command: ['sh', '-c', 'until [ -e /var/lib/mysql ]; do echo waiting for pvc; sleep 2; done;']
-        volumeMounts:
-        - name: mysql-storage
-          mountPath: /var/lib/mysql
-      containers:
-      - name: mysql
-        image: mysql:8
-        #command:
-        #  - "sh"
-        #  - "-c"
-        #  - |
-        #      mysql_upgrade -u root -p$MYSQL_ROOT_PASSWORD && mysqld
-        #args:
-        #- --character-set-server=utf8mb4
-        #- --collation-server=utf8mb4_unicode_ci
-        ports:
-        - containerPort: 3306
-        envFrom:
-        - secretRef:
-            name: mysql-secrets
-        - configMapRef:
-            name: mysql-config
-        volumeMounts:
-        - name: mysql-storage
-          mountPath: /var/lib/mysql
-          subPath: mysql
+ selector:
+   matchLabels:
+     app: mysql
+ serviceName: mysql-service
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       app: mysql
+   spec:
+     terminationGracePeriodSeconds: 10
+     containers:
+     - name: mysql
+       image: mysql:8
+       ports:
+       - containerPort: 3306
+         name: mysql
+       env:
+       - name: MYSQL_ROOT_PASSWORD
+         valueFrom:
+           secretKeyRef:
+             name: mysql-secrets
+             key: MYSQL_ROOT_PASSWORD
+       - name: MYSQL_DATABASE
+         value: "customers"
+       volumeMounts:
+       - mountPath: /var/lib/mysql
+         name: mysql-storage
+         subPath: mysql
       volumes:
       - name: mysql-storage
         persistentVolumeClaim:
