@@ -13,6 +13,22 @@ spec:
       labels:
         app: mysql
     spec:
+      initContainers:
+      - name: wait-for-pvc
+        image: busybox
+        command: ['sh', '-c', 'until [ -e /var/lib/mysql/mysql ]; do echo waiting for pvc; sleep 2; done;']
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql/mysql
+      - name: init-mysql
+        image: mysql:8
+        command: ["bash", "-c"]
+        args:
+          - >
+            if [ ! -d /var/lib/mysql/mysql ]; then
+              echo "Initializing MySQL data directory";
+              mysqld --initialize-insecure;
+            fi;
       terminationGracePeriodSeconds: 10
       containers:
       - name: mysql
@@ -36,4 +52,4 @@ spec:
       - name: mysql-storage
         persistentVolumeClaim:
           claimName: mysql-pvc
-          
+
