@@ -1,7 +1,0 @@
-== APP - accounting-service == Server is listening on PORT: 8081
-== APP - accounting-service == Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'customers' AND TABLE_SCHEMA = 'customers'
-== APP - accounting-service == Executing (default): SHOW INDEX FROM `customers`
-== APP - accounting-service == Models synchronized with the database.
-== APP - accounting-service == Executing (default): SELECT `id`, `name`, `phone`, `address`, `email`, `password`, `createdAt`, `updatedAt` FROM `customers` AS `customer`;
-
-termination signal received: shutting down

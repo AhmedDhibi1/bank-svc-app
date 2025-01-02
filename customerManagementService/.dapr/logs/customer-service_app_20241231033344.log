@@ -1,9 +1,0 @@
-== APP - customer-service == 2024-12-31T02:33:44.945Z INFO [HTTPServer, HTTPServerImpl] [Topic = updateAccount] Registered Subscription with routes: default
-== APP - customer-service == 2024-12-31T02:33:44.951Z INFO [HTTPServer, HTTPServer] Listening on 8081
-== APP - customer-service == 2024-12-31T02:33:44.951Z INFO [HTTPServer, HTTPServer] Registering 1 PubSub Subscriptions
-== APP - customer-service == 2024-12-31T02:33:44.980Z INFO [HTTPClient, HTTPClient] Sidecar Started
-== APP - customer-service == Express server is listening on http://127.0.0.1:8086
-== APP - customer-service == 2024-12-31T02:33:45.015Z INFO [HTTPServer, HTTPServer] Registered 1 PubSub Subscriptions
-== APP - customer-service == Subscriber received: {"customerId":"12345"}
-
-termination signal received: shutting down

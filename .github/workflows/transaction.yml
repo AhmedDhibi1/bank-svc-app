@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./transaction/app
+        working-directory: ./transaction/
 
     steps:
       - name: Checkout code
@@ -63,8 +63,8 @@ jobs:
 
       - name: Deploy FastAPI app with Uvicorn
         run: |
-          kubectl apply -f ./k8s/deployments/fastapi-deployment.yml
-          kubectl apply -f ./k8s/services/fastapi-service.yml
+          kubectl apply -f ./k8s/deployments/transaction.yml
+          kubectl apply -f ./k8s/services/transaction.yml
           sleep 10  # Wait for the deployment to be ready
 
       - name: Get pods status
