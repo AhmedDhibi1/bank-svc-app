@@ -22,8 +22,7 @@ primary:
     enabled: true
     existingClaim: "mysql-pvc"  # Use your existing PVC
     storageClass: "managed-premium"
-    size: 10Gi
+    size: 5Gi
 
 volumePermissions:
   enabled: true  # This ensures proper permissions on the mounted volume
-  
