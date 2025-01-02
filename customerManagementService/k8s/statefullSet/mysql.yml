@@ -23,6 +23,9 @@ spec:
         args:
           - |
             set -ex
+            mkdir -p /var/lib/mysql
+            chown -R 999:999 /var/lib/mysql
+            chmod -R 755 /var/lib/mysql
             # Only initialize if data directory is empty
             if [ ! "$(ls -A /var/lib/mysql)" ]; then
               echo "Initializing MySQL data directory"
