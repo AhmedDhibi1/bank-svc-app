@@ -23,10 +23,10 @@
     "pg": "^8.6.0",
     "sequelize": "^6.37.5",
     "sequelize-cli": "^6.2.0",
-    "sonar-scanner": "^3.1.0"
+    "sonar-scanner": "^3.1.0",
+    "dotenv": "^9.0.2"
   },
   "devDependencies": {
-    "dotenv": "^9.0.2"
   },
   "description": ""
 }

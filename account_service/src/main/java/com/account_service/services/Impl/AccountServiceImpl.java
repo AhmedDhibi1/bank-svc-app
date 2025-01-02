@@ -29,6 +29,9 @@ public class AccountServiceImpl implements AccountService {
     @Value("${customer.dapr.url}")
     private String customerUrl;
 
+    @Value("${customer.dapr.url}")
+    private String customerUrl;
+
 
     @Autowired
     private AccountRepository accountRepository;

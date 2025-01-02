@@ -1,0 +1,125 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service
+  labels:
+    app: customer-service
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: customer-service
+  template:
+    metadata:
+      labels:
+        app: customer-service
+      annotations:
+        dapr.io/sidecar-liveness-probe-delay-seconds: "30"
+        dapr.io/sidecar-liveness-probe-timeout-seconds: "10"
+        dapr.io/sidecar-readiness-probe-delay-seconds: "30"
+        dapr.io/sidecar-readiness-probe-timeout-seconds: "10"
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "customer-service"
+        dapr.io/app-port: "8081"
+        dapr.io/http-port: "3500"
+    spec:
+      initContainers:
+      - name: wait-for-mysql-service
+        image: busybox
+        command: ['sh', '-c', 'until nc -z mysql-service 3306; do echo waiting for mysql; sleep 2; done;']
+      containers:
+      - name: customer-service
+        image: ahmeddhibi/customer-service:latest
+        ports:
+        - containerPort: 8081
+        env:
+          - name: MYSQL_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: MYSQL_HOST
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: DB_PORT
+          - name: customers_db_name
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: customers_db_name
+          - name: customers_db_mysql
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: customers_db_mysql
+          - name: password_db_mysql
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: password_db_mysql
+          - name: APP_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: APP_PORT
+          - name: DAPR_HTTP_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: DAPR_HTTP_PORT
+          - name: ACCESS_TOKEN_SECRET
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: ACCESS_TOKEN_SECRET
+          - name: dapr_bindings
+            valueFrom:
+              configMapKeyRef:
+                name: customer-service-config
+                key: dapr_bindings
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "200m"
+            memory: "512Mi"
+        #readinessProbe:
+        #  httpGet:
+        #    path: /health
+        #    port: 8081
+        #  initialDelaySeconds: 20
+        #  periodSeconds: 10
+        #livenessProbe:
+        #  httpGet:
+        #    path: /health
+        #    port: 8081
+        #  initialDelaySeconds: 30
+        #  periodSeconds: 15
+
+---
+# Customer Service HPA
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: customer-service-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: customer-service
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
