@@ -7,8 +7,10 @@ spec:
   version: v1
   metadata:
     - name: redisHost
-      value: redis-master:6379 # Changed from localhost:6379
+      value: localhost:6379
     - name: redisPassword
       value: ""
 scopes:
+  - customer-service
   - account-service
+  - transactions-service
