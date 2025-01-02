@@ -79,7 +79,7 @@ jobs:
         
     - name: Deploy Transaction Microservice
       run: |
-        kubectl apply -f ./k8s/deployments/transaction.yml
+        kubectl apply -f ./transaction/k8s/deployments/transaction.yml
         sleep 10  # Wait for the deployment to be ready
     #- name: Check Deployment Status
     #  run: |
