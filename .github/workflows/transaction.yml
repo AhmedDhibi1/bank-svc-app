@@ -21,28 +21,41 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Ensure all commit history is fetched for better analysis
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.12" # Specify the version of Python you need
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
           python -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
-          pip install -r requirements.txt  # Make sure you have a requirements.txt in your project
+          pip install -r requirements.txt
 
       - name: Run tests
         run: |
           source venv/bin/activate
-          pytest  # Assuming you are using pytest for tests
+          pytest --junitxml=results.xml  # Generate a test results report
+        env:
+          PYTHONPATH: ${{ github.workspace }}/transaction
+
+      - name: Archive test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: results.xml
 
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/python-service:latest .
+
+      - name: Log in to Docker Hub
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Push Docker image to Docker Hub
         run: |
@@ -52,6 +65,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Log in to Azure
         uses: azure/login@v1
         with:
@@ -61,16 +77,20 @@ jobs:
         run: |
           az aks get-credentials --resource-group application --name kube --overwrite-existing
 
-      - name: Deploy FastAPI app with Uvicorn
+      - name: Deploy Transaction Microservice
         run: |
           kubectl apply -f ./k8s/deployments/transaction.yml
           kubectl apply -f ./k8s/services/transaction.yml
           sleep 10  # Wait for the deployment to be ready
 
-      - name: Get pods status
+      - name: Check Deployment Status
+        run: |
+          kubectl rollout status deployment/transaction
+
+      - name: Get Pods Status
         run: |
           kubectl get pods -o wide
 
-      - name: Get logs of FastAPI app
+      - name: Retrieve Logs
         run: |
-          kubectl logs -l app=fastapi-app
+          kubectl logs -l app=transaction
