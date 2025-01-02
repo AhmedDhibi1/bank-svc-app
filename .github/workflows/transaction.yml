@@ -39,9 +39,9 @@ jobs:
           -Dsonar.projectKey=transaction-service
           -Dsonar.sources=transaction
           -Dsonar.exclusions=account_service/**
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN3 }}
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN3 }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     - name: Build Docker image
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/transaction-service:latest .
