@@ -54,7 +54,6 @@ spec:
 
 ---
 # Transaction Service HPA
-#
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
