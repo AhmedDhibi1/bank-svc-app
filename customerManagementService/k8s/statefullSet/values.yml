@@ -1,0 +1,28 @@
+# values.yaml
+auth:
+  rootPassword: "admin"
+  database: "customers"
+  username: "admin"
+  password: "admin"
+
+architecture: standalone
+
+service:
+  name: mysql-service
+  type: ClusterIP
+  port: 3306
+
+initdbScripts:
+  grant-privileges.sql: |
+    GRANT ALL PRIVILEGES ON customers.* TO 'admin'@'%';
+    FLUSH PRIVILEGES;
+
+primary:
+  persistence:
+    enabled: true
+    existingClaim: "mysql-pvc"  # Use your existing PVC
+    storageClass: "managed-premium"
+    size: 5Gi
+
+volumePermissions:
+  enabled: true  # This ensures proper permissions on the mounted volume

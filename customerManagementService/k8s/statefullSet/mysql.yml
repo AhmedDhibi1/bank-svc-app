@@ -1,65 +1,35 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: mysql
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: mysql
-  serviceName: mysql-service
-  replicas: 1
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         app: mysql
     spec:
-      securityContext:
-        fsGroup: 999
-        runAsUser: 999
-      initContainers:
-      - name: init-mysql
-        image: mysql:8
-        command: ['bash', '-c']
-        args:
-          - |
-            set -ex
-            # Check specifically for MySQL system files
-            if [ ! -d "/var/lib/mysql/mysql" ]; then
-              echo "MySQL system tables not found. Initializing..."
-              rm -rf /var/lib/mysql/*
-              mysqld --initialize-insecure --datadir=/var/lib/mysql
-              echo "MySQL initialization complete"
-            else
-              echo "MySQL system tables found"
-            fi
-        volumeMounts:
-        - name: mysql-storage
-          mountPath: /var/lib/mysql
       containers:
-      - name: mysql
-        image: mysql:8
-        ports:
-        - containerPort: 3306
-          name: mysql
+      - image: mysql:5.6
+        name: mysql
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secrets
-              key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_DATABASE
-          value: "customers"
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secrets
+                key: MYSQL_ROOT_PASSWORD
+        ports:
+          - containerPort: 3306
+            name: mysql
         volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: mysql-storage
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "500m"
-          limits:
-            memory: "1Gi"
-            cpu: "1000m"
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-storage
-        persistentVolumeClaim:
-          claimName: mysql-pvc
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc

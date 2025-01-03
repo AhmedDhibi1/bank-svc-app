@@ -31,7 +31,7 @@ spec:
       initContainers:
       - name: wait-for-mysql-service
         image: busybox
-        command: ['sh', '-c', 'until nc -z mysql-service 3306; do echo waiting for mysql; sleep 2; done;']
+        command: ['sh', '-c', 'until nc -z mysql 3306; do echo waiting for mysql; sleep 2; done;']
       containers:
       - name: customer-service
         image: ahmeddhibi/customer-service:latest
