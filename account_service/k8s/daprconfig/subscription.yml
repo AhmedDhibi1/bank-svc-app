@@ -1,12 +1,8 @@
 apiVersion: dapr.io/v1alpha1
 kind: Subscription
 metadata:
-  name: account-subscriptions
+  name: updateaccount-subscription
 spec:
-  subscriptions:
-    - topic: updateAccount
-      route: /dapr/subscribe/updateAccount
-      pubsubname: pubsub
-    - topic: notify
-      route: /dapr/subscribe/notify
-      pubsubname: pubsub
+  topic: updateAccount
+  route: /dapr/subscribe/updateAccount
+  pubsubname: pubsub

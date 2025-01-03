@@ -7,8 +7,8 @@ const customerControllers = require("../controllers/customer.controllers");
 router.post("/dapr/subscribe/notify", accountUpdate);
 
 module.exports = router;
-transaction = {
-  customer_id: "1f2fdd06-f3a2-4047-94aa-c39bc09a17e3",
+Transaction = {
+  customer_id: "88edaf02-d912-4ae5-8df9-22da06355ab2",
   account_id: " 8e2ccf91-6bc5-47bb-81e6-0b3fbb828b5b",
   amount: 100,
   operation: "debit",
@@ -20,6 +20,6 @@ function accountUpdate(req, res) {
   const cloudEvent = req.body;
   const transaction = cloudEvent.data;
   console.log("Received message on updateAccount:", transaction["account_id"]);
-  //smsService.handleTransactionCompletion(transaction);
+  smsService.handleTransactionCompletion(Transaction);
   res.status(200).send("Received");
 }

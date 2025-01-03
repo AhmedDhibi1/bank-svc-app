@@ -13,20 +13,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use(`/customers`, customersRouter);
-app.use(``, notifyRouter);
+app.use(`/`, notifyRouter);
 
-app.post("/dapr/subscribe/notify", (req, res) => {
-  const cloudEvent = req.body;
-  const eventData = cloudEvent.data;
-  console.log("Received message on updateAccount:", eventData["accountId"]);
-  res.status(200).send("Received");
-});
-app.post("/dapr/subscribe/updateAccount", (req, res) => {
-  const cloudEvent = req.body;
-  const eventData = cloudEvent.data;
-  console.log("Received message on updateAccount:", eventData["accountId"]);
-  res.status(200).send("Received");
-});
+// app.post("/dapr/subscribe/notify", (req, res) => {
+//   const cloudEvent = req.body;
+//   const eventData = cloudEvent.data;
+//   console.log("Received message on updateAccount:", eventData["accountId"]);
+//   res.status(200).send("Received");
+// });
+// app.post("/dapr/subscribe/updateAccount", (req, res) => {
+//   const cloudEvent = req.body;
+//   const eventData = cloudEvent.data;
+//   console.log("Received message on updateAccount:", eventData["accountId"]);
+//   res.status(200).send("Received");
+// });
 transaction = {
   amount: 100.0,
   transaction_type: "TRANSFER",

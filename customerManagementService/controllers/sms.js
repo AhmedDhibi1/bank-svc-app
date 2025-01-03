@@ -1,6 +1,5 @@
 const axios = require("axios");
 require("dotenv").config();
-const Customer = require("../models/customer");
 const customerController = require("./customer.controllers");
 
 async function sendSMS(customerPhoneNumber, transactionDetails) {
@@ -19,14 +18,20 @@ async function sendSMS(customerPhoneNumber, transactionDetails) {
     console.error("Failed to send SMS:", error);
   }
 }
-
 async function handleTransactionCompletion(transaction) {
   try {
-    const customer = customerController.getById(transaction["customer_id"]);
-    const customerPhoneNumber = customer["phone"];
+    // Get the customer info (assuming transaction has a customer_id)
+    const customer = await customerController.getById(transaction.customer_id);
+    const customerPhoneNumber = customer.phone;
+    console.log(`Sending SMS to: ${customerPhoneNumber}`);
+
+    // Send SMS with transaction details
     await sendSMS(customerPhoneNumber, transaction);
   } catch (error) {
-    console.error("Error sending SMS:", error);
+    console.error(
+      "Error handling transaction completion:",
+      error.message || error
+    );
   }
 }
 
