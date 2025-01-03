@@ -4,7 +4,7 @@ metadata:
   name: postgres-pv
 spec:
   capacity:
-    storage: 10Gi # Specify the storage size
+    storage: 5Gi # Specify the storage size
   accessModes:
     - ReadWriteOnce # Define the access mode
   persistentVolumeReclaimPolicy: Retain # Retain the volume even if the PVC is deleted
