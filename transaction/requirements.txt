@@ -6,4 +6,4 @@ python-dotenv
 dapr
 motor
 charset-normalizer
-# pytest
+pytest
