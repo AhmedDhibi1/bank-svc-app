@@ -1,10 +1,8 @@
 import json
-from charset_normalizer import from_fp
 from fastapi import FastAPI
 from core.config import settings
 from db.mongodb import db
 from api.endpoints import transaction
-from dapr.ext.fastapi import DaprApp
 
 app = FastAPI(title="Banking Transaction Service")
 
