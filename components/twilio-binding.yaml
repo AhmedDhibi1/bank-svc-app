@@ -11,6 +11,6 @@ spec:
     - name: accountSid
       value: "AC8b2449ffe5b38b9c5e5787933ce0d0f6"
     - name: authToken
-      value: "843986de072b2dd92bb75b9defd305ba"
+      value: "c8e58dd70abb04d4050c4f7f92ed0d62"
     - name: fromNumber
       value: "+12316679128"

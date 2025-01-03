@@ -19,7 +19,8 @@ Transaction = {
 function accountUpdate(req, res) {
   const cloudEvent = req.body;
   const transaction = cloudEvent.data;
+  console.log(transaction);
   console.log("Received message on updateAccount:", transaction["account_id"]);
-  smsService.handleTransactionCompletion(Transaction);
+  smsService.handleTransactionCompletion(transaction);
   res.status(200).send("Received");
 }
