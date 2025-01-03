@@ -6,7 +6,7 @@ const customer = process.env.customers_db_mysql || "root";
 const password = process.env.password_db_mysql || "admin";
 const sequelize = new Sequelize(db_name, customer, password, {
   dialect: "mysql",
-  host: "127.0.0.1",
+  host: process.env.MYSQL_HOST,
   port: 3306,
 });
 module.exports = sequelize;
