@@ -19,6 +19,7 @@ spec:
       labels:
         app: account-service
       annotations:
+        dapr.io/config: "tracing"
         dapr.io/sidecar-liveness-probe-delay-seconds: "30"
         dapr.io/sidecar-liveness-probe-timeout-seconds: "10"
         dapr.io/sidecar-readiness-probe-delay-seconds: "30"
