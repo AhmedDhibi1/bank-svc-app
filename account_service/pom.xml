@@ -69,7 +69,15 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>3.0.1</version>
 		</dependency>
-
+		<dependency>
+			<groupId>io.dapr</groupId>
+			<artifactId>dapr-sdk-springboot</artifactId>
+			<version>1.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
@@ -106,8 +114,8 @@
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
-            <version>3.9.1.2184</version> <!-- Use latest stable version -->
-        </plugin>
+            	<version>3.9.1.2184</version> <!-- Use latest stable version -->
+			</plugin>
 		</plugins>
 	</build>
 

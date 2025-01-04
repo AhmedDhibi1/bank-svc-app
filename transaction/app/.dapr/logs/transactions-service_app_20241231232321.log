@@ -1,0 +1,8 @@
+== APP - transactions-service == INFO:     Will watch for changes in these directories: ['/home/iheb/Documents/Projects/bank-svc-app/transaction/app']
+== APP - transactions-service == INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+== APP - transactions-service == INFO:     Started reloader process [1480153] using WatchFiles
+== APP - transactions-service == INFO:     Started server process [1480169]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+
+termination signal received: shutting down

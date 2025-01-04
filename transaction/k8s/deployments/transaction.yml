@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: transaction-service
+  annotations:
+    dapr.io/enabled: "true"
+    dapr.io/app-id: "transaction-service"
+    dapr.io/config: "dapr-config"
   labels:
     app: transaction-service
 spec:

@@ -15,3 +15,4 @@ data:
   DAPR_APP_ID: account-service
   DAPR_APP_PORT: "8083"
   DAPR_HTTP_SERVICE: customer-service
+  CUSTOMER_DAPR_URL: http://localhost:3500/v1.0/invoke/customer-service/method/customers/

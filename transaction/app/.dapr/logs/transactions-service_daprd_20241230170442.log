@@ -1,0 +1,71 @@
+Starting Dapr with id transactions-service. HTTP Port: 3501. gRPC Port: 37871
+Updating metadata for cliPID: 251022
+Flag --dapr-http-max-request-size has been deprecated, use '--max-body-size 4Mi'
+Flag --dapr-http-read-buffer-size has been deprecated, use '--read-buffer-size 4Ki'
+time="2024-12-30T17:04:42.428945413+01:00" level=info msg="Starting Dapr Runtime -- version 1.14.4 -- commit 583960dc90120616124b60ad2b7820fc0b3edf44" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.429002614+01:00" level=info msg="Log level set to: info" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.429276116+01:00" level=warning msg="mTLS is disabled. Skipping certificate request and tls validation" app_id=transactions-service instance=random scope=dapr.runtime.security type=log ver=1.14.4
+time="2024-12-30T17:04:42.430060095+01:00" level=info msg="metric spec: {0xc001dd6277 <nil> <nil> []}" app_id=transactions-service instance=random scope=dapr.runtime.diagnostics type=log ver=1.14.4
+time="2024-12-30T17:04:42.439767543+01:00" level=info msg="Using default latency distribution buckets: [1 2 3 4 5 6 8 10 13 16 20 25 30 40 50 65 80 100 130 160 200 250 300 400 500 650 800 1000 2000 5000 10000 20000 50000 100000]" app_id=transactions-service instance=random scope=dapr.runtime.diagnostics type=log ver=1.14.4
+time="2024-12-30T17:04:42.440275366+01:00" level=warning msg="The default value for 'spec.metric.http.increasedCardinality' will change to 'false' in Dapr 1.15 or later" app_id=transactions-service instance=random scope=dapr.runtime.diagnostics type=log ver=1.14.4
+time="2024-12-30T17:04:42.442013671+01:00" level=info msg="metrics server started on :41679/" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.442341161+01:00" level=info msg="standalone mode configured" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.442390749+01:00" level=info msg="app id: transactions-service" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.442535602+01:00" level=info msg="Dapr trace sampler initialized: ParentBased{root:AlwaysOnSampler,remoteParentSampled:AlwaysOnSampler,remoteParentNotSampled:AlwaysOffSampler,localParentSampled:AlwaysOnSampler,localParentNotSampled:AlwaysOffSampler}" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.443268247+01:00" level=info msg="local service entry announced: transactions-service -> 192.168.1.18:46141" app_id=transactions-service component="nr (mdns/v1)" instance=random scope=dapr.contrib type=log ver=1.14.4
+time="2024-12-30T17:04:42.443340604+01:00" level=info msg="Initialized name resolution to mdns" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.443463945+01:00" level=info msg="Loading components…" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.48280554+01:00" level=info msg="Component loaded: pubsub (pubsub.redis/v1)" app_id=transactions-service instance=random scope=dapr.runtime.processor type=log ver=1.14.4
+time="2024-12-30T17:04:42.483558649+01:00" level=info msg="Waiting for all outstanding components to be processed…" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.566688556+01:00" level=info msg="Using 'statestore' as actor state store" app_id=transactions-service instance=random scope=dapr.runtime.processor.state type=log ver=1.14.4
+time="2024-12-30T17:04:42.566810221+01:00" level=info msg="Component loaded: statestore (state.redis/v1)" app_id=transactions-service instance=random scope=dapr.runtime.processor type=log ver=1.14.4
+time="2024-12-30T17:04:42.566869797+01:00" level=info msg="All outstanding components processed" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.566928464+01:00" level=info msg="Loading endpoints…" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.569682136+01:00" level=info msg="Waiting for all outstanding http endpoints to be processed…" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.569854297+01:00" level=info msg="All outstanding http endpoints processed" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.569882862+01:00" level=info msg="Loading Declarative Subscriptions…" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.575930575+01:00" level=info msg="gRPC server listening on TCP address: :37871" app_id=transactions-service instance=random scope=dapr.runtime.grpc.api type=log ver=1.14.4
+time="2024-12-30T17:04:42.576027376+01:00" level=info msg="Enabled gRPC tracing middleware" app_id=transactions-service instance=random scope=dapr.runtime.grpc.api type=log ver=1.14.4
+time="2024-12-30T17:04:42.576072564+01:00" level=info msg="Enabled gRPC metrics middleware" app_id=transactions-service instance=random scope=dapr.runtime.grpc.api type=log ver=1.14.4
+time="2024-12-30T17:04:42.576211201+01:00" level=info msg="Registering workflow engine for gRPC endpoint: [::]:37871" app_id=transactions-service instance=random scope=dapr.runtime.grpc.api type=log ver=1.14.4
+time="2024-12-30T17:04:42.576336638+01:00" level=info msg="API gRPC server is running on port 37871" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.576418563+01:00" level=warning msg="The default value for 'spec.metric.http.increasedCardinality' will change to 'false' in Dapr 1.15 or later" app_id=transactions-service instance=random scope=dapr.runtime.http type=log ver=1.14.4
+time="2024-12-30T17:04:42.57653953+01:00" level=info msg="Enabled max body size HTTP middleware with size 4194304 bytes" app_id=transactions-service instance=random scope=dapr.runtime.http type=log ver=1.14.4
+time="2024-12-30T17:04:42.576590445+01:00" level=info msg="Enabled tracing HTTP middleware" app_id=transactions-service instance=random scope=dapr.runtime.http type=log ver=1.14.4
+time="2024-12-30T17:04:42.576612445+01:00" level=info msg="Enabled metrics HTTP middleware" app_id=transactions-service instance=random scope=dapr.runtime.http type=log ver=1.14.4
+time="2024-12-30T17:04:42.577487708+01:00" level=info msg="HTTP server listening on TCP address: :3501" app_id=transactions-service instance=random scope=dapr.runtime.http type=log ver=1.14.4
+time="2024-12-30T17:04:42.577614542+01:00" level=info msg="HTTP server is running on port 3501" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.577635984+01:00" level=info msg="The request body size parameter is: 4194304 bytes" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.577911861+01:00" level=info msg="gRPC server listening on TCP address: :46141" app_id=transactions-service instance=random scope=dapr.runtime.grpc.internal type=log ver=1.14.4
+time="2024-12-30T17:04:42.577945245+01:00" level=info msg="Enabled gRPC tracing middleware" app_id=transactions-service instance=random scope=dapr.runtime.grpc.internal type=log ver=1.14.4
+time="2024-12-30T17:04:42.577964103+01:00" level=info msg="Enabled gRPC metrics middleware" app_id=transactions-service instance=random scope=dapr.runtime.grpc.internal type=log ver=1.14.4
+time="2024-12-30T17:04:42.578062999+01:00" level=info msg="Internal gRPC server is running on :46141" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:42.578323232+01:00" level=info msg="application protocol: http. waiting on port 8000.  This will block until the app is listening on that port." app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+Updating metadata for app command: uvicorn main:app --reload --log-level debug
+Updating metadata for appPID: 251132
+You're up and running! Dapr logs will appear here.
+
+time="2024-12-30T17:04:45.107078233+01:00" level=info msg="application discovered on port 8000" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:45.111807324+01:00" level=info msg="Application configuration loaded" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:45.111925986+01:00" level=info msg="Configuring actors placement provider 'placement'. Configuration: 'placement:localhost:50005'" app_id=transactions-service instance=random scope=dapr.runtime.actor type=log ver=1.14.4
+time="2024-12-30T17:04:45.111967612+01:00" level=info msg="Configuring actor reminders provider 'default'. Configuration: ''" app_id=transactions-service instance=random scope=dapr.runtime.actor type=log ver=1.14.4
+time="2024-12-30T17:04:45.112015244+01:00" level=info msg="Actor runtime started. Idle timeout: 1h0m0s" app_id=transactions-service instance=random scope=dapr.runtime.actor type=log ver=1.14.4
+time="2024-12-30T17:04:45.112041016+01:00" level=info msg="Configuring workflow engine with actors backend" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:45.112067346+01:00" level=info msg="Registering component for dapr workflow engine..." app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:45.112097379+01:00" level=info msg="Initializing Dapr workflow component" app_id=transactions-service component="dapr (workflow.dapr/v1)" instance=random scope=dapr.contrib type=log ver=1.14.4
+time="2024-12-30T17:04:45.112130763+01:00" level=info msg="Workflow engine initialized." app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:45.113627553+01:00" level=info msg="dapr initialized. Status: Running. Init Elapsed 2671ms" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:04:45.126295894+01:00" level=info msg="Placement tables updated, version: 0" app_id=transactions-service instance=random scope=dapr.runtime.actors.placement type=log ver=1.14.4
+time="2024-12-30T17:06:18.833413002+01:00" level=info msg="Received signal 'interrupt'; beginning shutdown" app_id=transactions-service instance=random scope=dapr.signals type=log ver=1.14.4
+time="2024-12-30T17:06:18.834475163+01:00" level=info msg="Dapr is shutting down" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:06:18.8352428+01:00" level=info msg="Shutting down component statestore (state.redis/v1)" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:06:18.835487806+01:00" level=info msg="Shutting down component pubsub (pubsub.redis/v1)" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:06:18.835747829+01:00" level=info msg="Shutting down workflow engine" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:06:18.83583164+01:00" level=info msg="Shutting down actor" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+time="2024-12-30T17:06:18.834633146+01:00" level=info msg="Closing HTTP server [::]:3501…" app_id=transactions-service instance=random scope=dapr.runtime.http type=log ver=1.14.4
+time="2024-12-30T17:06:18.836018328+01:00" level=info msg="stopping mDNS server for app id: transactions-service" app_id=transactions-service component="nr (mdns/v1)" instance=random scope=dapr.contrib type=log ver=1.14.4
+time="2024-12-30T17:06:18.835989134+01:00" level=info msg="Dapr runtime stopped" app_id=transactions-service instance=random scope=dapr.runtime type=log ver=1.14.4
+
+termination signal received: shutting down
+Exited Dapr successfully
+Exited App successfully

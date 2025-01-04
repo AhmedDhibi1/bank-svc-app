@@ -1,0 +1,15 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub
+spec:
+  type: pubsub.redis
+  version: v1
+  metadata:
+    - name: redisHost
+      value: redis-master:6379  # Changed from localhost:6379
+    - name: redisPassword
+      value: ""
+scopes:
+  - account-service
+  - customer-service

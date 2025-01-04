@@ -29,82 +29,92 @@ spec:
         dapr.io/http-port: "3501"
     spec:
       initContainers:
-      - name: wait-for-postgres
-        image: busybox
-        command: ['sh', '-c', 'until nc -z postgres-service 5432; do echo waiting for postgres; sleep 2; done;']
+        - name: wait-for-postgres
+          image: busybox
+          command:
+            [
+              "sh",
+              "-c",
+              "until nc -z postgres-service 5432; do echo waiting for postgres; sleep 2; done;",
+            ]
       containers:
-      - name: account-service
-        image: ahmeddhibi/account-service:latest
-        ports:
-        - containerPort: 8083
-        env:
-          - name: SPRING_DATASOURCE_URL
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: SPRING_DATASOURCE_URL
-          - name: SPRING_DATASOURCE_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: postgres-secrets
-                key: POSTGRES_USER
-          - name: SPRING_DATASOURCE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: postgres-secrets
-                key: POSTGRES_PASSWORD
-          - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: SPRING_JPA_HIBERNATE_DDL_AUTO
-          - name: SPRING_JPA_SHOW_SQL
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: SPRING_JPA_SHOW_SQL
-          - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
-          - name: SERVER_PORT
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: SERVER_PORT
-          - name: SPRING_APPLICATION_NAME
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: SPRING_APPLICATION_NAME
-          - name: DAPR_HTTP_PORT
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: DAPR_HTTP_PORT
-          - name: DAPR_APP_ID
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: DAPR_APP_ID
-          - name: DAPR_APP_PORT
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: DAPR_APP_PORT
-          - name: DAPR_HTTP_SERVICE
-            valueFrom:
-              configMapKeyRef:
-                name: account-service-config
-                key: DAPR_HTTP_SERVICE
-        resources:
-          requests:
-            cpu: "250m"
-            memory: "512Mi"
-          limits:
-            cpu: "1"
-            memory: "1Gi"
+        - name: account-service
+          image: ahmeddhibi/account-service:latest
+          ports:
+            - containerPort: 8083
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: SPRING_DATASOURCE_URL
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_USER
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_PASSWORD
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: SPRING_JPA_HIBERNATE_DDL_AUTO
+            - name: SPRING_JPA_SHOW_SQL
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: SPRING_JPA_SHOW_SQL
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: SERVER_PORT
+            - name: SPRING_APPLICATION_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: SPRING_APPLICATION_NAME
+            - name: DAPR_HTTP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: DAPR_HTTP_PORT
+            - name: DAPR_APP_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: DAPR_APP_ID
+            - name: DAPR_APP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: DAPR_APP_PORT
+            - name: DAPR_HTTP_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: DAPR_HTTP_SERVICE
+            - name: CUSTOMER_DAPR_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: account-service-config
+                  key: CUSTOMER_DAPR_URL
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
 #        readinessProbe:
 #          httpGet:
 #            path: /actuator/health
@@ -132,9 +142,9 @@ spec:
   minReplicas: 2
   maxReplicas: 5
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 70
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70

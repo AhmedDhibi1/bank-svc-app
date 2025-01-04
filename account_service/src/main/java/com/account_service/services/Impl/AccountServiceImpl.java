@@ -1,10 +1,13 @@
 package com.account_service.services.Impl;
 
+import org.springframework.beans.factory.annotation.Value;
 import com.account_service.entity.Account;
 import com.account_service.entity.Customer;
 import com.account_service.exceptions.ResourceNotFoundException;
 import com.account_service.repositories.AccountRepository;
 import com.account_service.services.AccountService;
+import io.dapr.client.DaprClient;
+import io.dapr.client.DaprClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +26,14 @@ public class AccountServiceImpl implements AccountService {
     private RestTemplate restTemplate;
 
     private Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
-
+    @Value("${customer.dapr.url}")
+    private String customerUrl;
 
     @Autowired
     private AccountRepository accountRepository;
     @Override
     public Account create(Account account) {
-        Customer customer = restTemplate.getForObject("http://customer-service.default.svc.cluster.local/v1.0/invoke/customer-service/method/customers/" + account.getCustomerId(), Customer.class);
+        Customer customer = restTemplate.getForObject(customerUrl + account.getCustomerId(), Customer.class);
         if(customer == null) {
             throw new Error("No customer with this ID");
         }
@@ -72,6 +76,7 @@ public class AccountServiceImpl implements AccountService {
         }
         return null;
     }
+
 
     @Override
     public void delete(String id) {

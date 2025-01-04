@@ -1,0 +1,22 @@
+== APP - transactions-service == INFO:     Will watch for changes in these directories: ['/home/iheb/Documents/Projects/bank-svc-app/transaction/app']
+== APP - transactions-service == INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+== APP - transactions-service == INFO:     Started reloader process [251132] using WatchFiles
+== APP - transactions-service == INFO:     Started server process [251168]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == INFO:     127.0.0.1:52528 - "GET /dapr/config HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:52528 - "GET /dapr/subscribe HTTP/1.1" 404 Not Found
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [251168]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [251491]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+
+termination signal received: shutting down
