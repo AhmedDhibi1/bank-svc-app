@@ -153,6 +153,7 @@ jobs:
           helm install zipkin openzipkin/zipkin
 
       - name: Apply pubsub and statestoredapr config
+        run : |
           kubectl apply -f ./account_service/k8s/daprconfig/
           sleep 10 # Wait for 1 minute
       #- name: Wait for Redis to be ready
