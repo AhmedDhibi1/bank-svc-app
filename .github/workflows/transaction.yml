@@ -80,21 +80,21 @@ jobs:
         run: |
           set -e
           echo "Deploying Zipkin..."
-          kubectl apply -f ./transaction/k8s/deployments/zipkin-deployment.yaml
-          kubectl apply -f ./transaction/k8s/services/zipkin-service.yaml
+          kubectl apply -f ./transaction/k8s/zipkin-deployment.yaml
+          kubectl apply -f ./transaction/k8s/zipkin-service.yaml
           echo "Waiting for Zipkin to be ready..."
           kubectl wait --for=condition=available --timeout=300s deployment/zipkin
           echo "Zipkin deployed successfully."
       - name: Deploy Transaction Microservice
         run: |
           kubectl apply -f ./transaction/k8s/deployments/transaction.yml
-          sleep 10  # Wait for the deployment to be ready
-      #- name: Check Deployment Status
-      #  run: |
-      #    kubectl rollout status deployment/transaction-service
+          echo "Waiting for the Transaction Microservice to be ready..."
+          kubectl wait --for=condition=ready --timeout=300s pod -l app=transaction-service
+          echo "Transaction Microservice deployed successfully."
       - name: Get Pods Status
         run: |
           kubectl get pods -o wide
       - name: Retrieve Logs
         run: |
+          echo "Retrieving logs for Transaction Microservice..."
           kubectl logs -l app=transaction-service
