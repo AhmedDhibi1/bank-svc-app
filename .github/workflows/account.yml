@@ -127,15 +127,12 @@ jobs:
       - name: Apply postgres service
         run: |
           kubectl apply -f ./account_service/k8s/services/postgres-service.yml
-          sleep 10 # Wait for 1 minute
       - name: Apply account service
         run: |
           kubectl apply -f ./account_service/k8s/services/account.yml
-          sleep 10 # Wait for 1 minute
       - name: apply redis service
         run: |
           kubectl apply -f ./account_service/k8s/services/redis.yml
-          sleep 10 # Wait for 1 minute
       - name: Uninstall existing Redis release if it exists
         run: |
           helm uninstall redis || echo "Redis not installed previously, skipping uninstall"
@@ -145,7 +142,6 @@ jobs:
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo update
           helm install redis bitnami/redis --set auth.enabled=false
-          sleep 10 # Wait for Redis to be deployed
       #- name: apply zipkin with helm
       #  run : |
       #    helm repo add openzipkin https://openzipkin.github.io/zipkin
@@ -155,7 +151,6 @@ jobs:
       - name: Apply pubsub and statestoredapr config
         run : |
           kubectl apply -f ./account_service/k8s/daprconfig/
-          sleep 10 # Wait for 1 minute
       #- name: Wait for Redis to be ready
       #  run: |
       #    kubectl wait --for=condition=ready pod -l app=redis --timeout=120s
@@ -181,12 +176,10 @@ jobs:
       - name: Apply secrets
         run: |
           kubectl apply -f ./account_service/k8s/secrets/
-          sleep 10 # Wait for 1 minute
 
       - name: Apply configmaps
         run: |
           kubectl apply -f ./account_service/k8s/configmaps/
-          sleep 10 # Wait for 1 minute
       - name: Apply pv
         run: |
           kubectl apply -f ./account_service/k8s/pvc/pv.yml
@@ -204,12 +197,10 @@ jobs:
       - name: Apply persistent volume claims (PVCs)
         run: |
           kubectl apply -f ./account_service/k8s/pvc/postgres-pvc.yml
-          sleep 30 # Wait for 1.5 minute
 
       - name: Apply stateful sets
         run: |
           kubectl apply -f ./account_service/k8s/statefullset/
-          sleep 30 # Wait for 2 minute
 
       - name: Apply deployments
         run: |

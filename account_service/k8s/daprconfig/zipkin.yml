@@ -1,4 +1,4 @@
-apiVersion: dapr.io/v1.10.0
+apiVersion: dapr.io/v1alpha1
 kind: Configuration
 metadata:
   name: tracing-config
