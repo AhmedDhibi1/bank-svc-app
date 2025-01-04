@@ -67,6 +67,8 @@ jobs:
           ignore-unfixed: true
           vuln-type: "os,library"
           severity: "CRITICAL,HIGH"
+          format: 'json'
+          output: "./transaction/trivy-scan-results.json"
       - name: Upload Trivy scan results
         uses: actions/upload-artifact@v3
         with:
