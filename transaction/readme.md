@@ -1,1 +1,1 @@
-testing zipkin Trivy
+testing Trivy

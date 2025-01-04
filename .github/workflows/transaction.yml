@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: trivy-scan-results
-          path: trivy-scan-results.json
+          path: "${{ github.workspace }}/trivy-scan-results.json"
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
