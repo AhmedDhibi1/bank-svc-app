@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: trivy-scan-results
-          path: "${{ github.workspace }}/trivy-scan-results.json"
+          path: "./transaction/trivy-scan-results.json"
   deployments:
     runs-on: ubuntu-latest
     needs: build
@@ -105,7 +105,6 @@ jobs:
           set -e
           echo "Deploying Zipkin..."
           kubectl apply -f ./transaction/k8s/deployments/zipkin-deployment.yaml
-          kubectl apply -f ./transaction/k8s/services/zipkin-service.yaml
           echo "Waiting for Zipkin to be ready..."
           kubectl wait --for=condition=available --timeout=300s deployment/zipkin
           echo "Zipkin deployed successfully."
