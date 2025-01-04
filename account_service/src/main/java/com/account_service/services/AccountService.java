@@ -24,7 +24,11 @@ public interface AccountService {
     List<Account> getAccountByCustomerId(UUID customerId);
 
     //update Account
+<<<<<<< HEAD
     Account updateAccount(UUID id, Account account);
+=======
+    Account updateAccount(String id, Account account);
+>>>>>>> 106ab3190ee04cf6c8a7d2a89e202bba90b10530
 
     //delete
 

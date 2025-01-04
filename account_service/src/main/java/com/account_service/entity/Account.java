@@ -31,6 +31,10 @@ public class Account {
     Date lastActivity;
     private int balance;
 
+<<<<<<< HEAD
     private UUID customerId;
+=======
+    private String customerId;
+>>>>>>> 106ab3190ee04cf6c8a7d2a89e202bba90b10530
 
 }

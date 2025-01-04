@@ -1,0 +1,21 @@
+version: 1
+common:
+  resourcesPath: ./components/
+apps:
+  - appID: customer-service
+    appDirPath: ./customerManagementService/
+    appPort: 8081
+    command: ["nodemon", "app.js"]
+    daprHTTPPort: 3510
+
+  - appID: accounting-service
+    appDirPath: ./account_service/target/
+    appPort: 8083
+    command: ["java", "-jar", "account_service-0.0.1-SNAPSHOT.jar"]
+    daprHTTPPort: 3520
+
+  - appID: transactions-service
+    appDirPath: ./transaction/app/
+    appPort: 8000
+    command: ["uvicorn", "main:app", "--reload", "--log-level", "debug"]
+    daprHTTPPort: 3530

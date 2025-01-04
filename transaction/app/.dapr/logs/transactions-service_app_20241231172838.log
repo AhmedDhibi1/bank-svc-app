@@ -1,0 +1,313 @@
+== APP - transactions-service == INFO:     Will watch for changes in these directories: ['/home/iheb/Documents/Projects/bank-svc-app/transaction/app']
+== APP - transactions-service == INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+== APP - transactions-service == INFO:     Started reloader process [1292327] using WatchFiles
+== APP - transactions-service == INFO:     Started server process [1292360]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "GET /dapr/config HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "GET /dapr/subscribe HTTP/1.1" 200 OK
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42504 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42478 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42500 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42508 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42444 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42442 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42468 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42464 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:35498 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:60226 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:60228 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == {'accountId': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'accountType': 'SAVINGS', 'accountOpeningDate': '2024-12-29T21:31:46.606+00:00', 'lastActivity': '2024-12-29T21:31:46.606+00:00', 'balance': 4300, 'customerId': '88edaf02-d912-4ae5-8df9-22da06355ab2'}
+== APP - transactions-service == INFO:     127.0.0.1:60226 - "POST /transactions/ HTTP/1.1" 200 OK
+== APP - transactions-service == INFO:     127.0.0.1:57510 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:57514 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == {'accountId': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'accountType': 'SAVINGS', 'accountOpeningDate': '2024-12-29T21:31:46.606+00:00', 'lastActivity': '2024-12-29T21:31:46.606+00:00', 'balance': 4400, 'customerId': '88edaf02-d912-4ae5-8df9-22da06355ab2'}
+== APP - transactions-service == INFO:     127.0.0.1:57510 - "POST /transactions/ HTTP/1.1" 200 OK
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1292360]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [1302222]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == INFO:     127.0.0.1:39672 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:39686 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:39672 - "POST /transactions/ HTTP/1.1" 400 Bad Request
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1302222]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [1303759]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:42488 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42486 - "POST /transactions/ HTTP/1.1" 400 Bad Request
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1303759]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [1307417]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == INFO:     127.0.0.1:50732 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:50744 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:50732 - "POST /transactions/ HTTP/1.1" 400 Bad Request
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1307417]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [1308529]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == INFO:     127.0.0.1:60564 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:57436 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:60564 - "POST /transactions/ HTTP/1.1" 200 OK
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1308529]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [1312483]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1312483]
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [1315366]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1315366]
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == Dapr client closed.
+== APP - transactions-service == INFO:     Started server process [1316457]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1316457]
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == INFO:     Started server process [1316747]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == INFO:     127.0.0.1:42082 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:42088 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42082 - "POST /transactions/ HTTP/1.1" 200 OK
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1316747]
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == INFO:     Started server process [1317850]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == WARNING:  WatchFiles detected changes in 'services/transaction.py'. Reloading...
+== APP - transactions-service == INFO:     Shutting down
+== APP - transactions-service == INFO:     Waiting for application shutdown.
+== APP - transactions-service == INFO:     Application shutdown complete.
+== APP - transactions-service == INFO:     Finished server process [1317850]
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Disconnected from MongoDB!
+== APP - transactions-service == INFO:     Started server process [1327727]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == INFO:     127.0.0.1:38050 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == INFO:     127.0.0.1:38052 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:38052 - "POST /dapr/subscribe/updateAccount HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:38050 - "POST /transactions/ HTTP/1.1" 200 OK
+
+termination signal received: shutting down

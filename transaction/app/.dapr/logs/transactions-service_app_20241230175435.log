@@ -1,0 +1,15 @@
+== APP - transactions-service == INFO:     Will watch for changes in these directories: ['/home/iheb/Documents/Projects/bank-svc-app/transaction/app']
+== APP - transactions-service == INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+== APP - transactions-service == INFO:     Started reloader process [299972] using WatchFiles
+== APP - transactions-service == INFO:     Started server process [299987]
+== APP - transactions-service == INFO:     Waiting for application startup.
+== APP - transactions-service == INFO:     Application startup complete.
+== APP - transactions-service == Connected to MongoDB!
+== APP - transactions-service == Dapr client initialized.
+== APP - transactions-service == INFO:     127.0.0.1:42086 - "GET /dapr/config HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:42086 - "GET /dapr/subscribe HTTP/1.1" 404 Not Found
+== APP - transactions-service == INFO:     127.0.0.1:43650 - "POST /transactions HTTP/1.1" 307 Temporary Redirect
+== APP - transactions-service == {'accountId': '1f2fdd06-f3a2-4047-94aa-c39bc09a17e3', 'accountType': 'SAVINGS', 'accountOpeningDate': '2024-12-29T21:31:46.606+00:00', 'lastActivity': '2024-12-29T21:31:46.606+00:00', 'balance': 2300, 'customerId': '88edaf02-d912-4ae5-8df9-22da06355ab2'}
+== APP - transactions-service == INFO:     127.0.0.1:43650 - "POST /transactions/ HTTP/1.1" 200 OK
+
+termination signal received: shutting down
