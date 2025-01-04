@@ -80,8 +80,8 @@ jobs:
         run: |
           set -e
           echo "Deploying Zipkin..."
-          kubectl apply -f ./transaction/k8s/zipkin-deployment.yaml
-          kubectl apply -f ./transaction/k8s/zipkin-service.yaml
+          kubectl apply -f ./transaction/k8s/deployments/zipkin-deployment.yaml
+          kubectl apply -f ./transaction/k8s/services/zipkin-service.yaml
           echo "Waiting for Zipkin to be ready..."
           kubectl wait --for=condition=available --timeout=300s deployment/zipkin
           echo "Zipkin deployed successfully."
