@@ -1,0 +1,24 @@
+# zipkin-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zipkin
+  namespace: default # Change the namespace if needed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zipkin
+  template:
+    metadata:
+      labels:
+        app: zipkin
+    spec:
+      containers:
+        - name: zipkin
+          image: openzipkin/zipkin:latest
+          ports:
+            - containerPort: 9411
+          env:
+            - name: JAVA_OPTS
+              value: "-Xms512m -Xmx512m" # Adjust memory settings as needed

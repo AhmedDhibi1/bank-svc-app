@@ -1,0 +1,13 @@
+# zipkin-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: zipkin
+  namespace: default # Change the namespace if needed
+spec:
+  selector:
+    app: zipkin
+  ports:
+    - port: 9411
+      targetPort: 9411
+  type: ClusterIP # Use LoadBalancer or NodePort if external access is needed
