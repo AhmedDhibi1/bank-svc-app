@@ -146,11 +146,11 @@ jobs:
           helm repo update
           helm install redis bitnami/redis --set auth.enabled=false
           sleep 10 # Wait for Redis to be deployed
-      - name: apply zipkin with helm
-        run : |
-          helm repo add openzipkin https://openzipkin.github.io/zipkin
-          helm repo update
-          helm install zipkin openzipkin/zipkin
+      #- name: apply zipkin with helm
+      #  run : |
+      #    helm repo add openzipkin https://openzipkin.github.io/zipkin
+      #    helm repo update
+      #    helm install zipkin openzipkin/zipkin
 
       - name: Apply pubsub and statestoredapr config
         run : |
