@@ -1,0 +1,8 @@
+fastapi[all]
+pymongo
+httpx
+uvicorn
+python-dotenv
+dapr
+motor
+# pytest

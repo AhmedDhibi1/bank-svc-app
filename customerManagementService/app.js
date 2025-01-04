@@ -1,9 +1,9 @@
-const { DaprServer } = require("@dapr/dapr");
 const express = require("express");
 const cors = require("cors");
 const sequelize = require("./config/db_config");
 const app = express();
 const customersRouter = require("./routes/customer.routes");
+const notifyRouter = require("./routes/notify");
 const Customer = require("./models/customer");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json({ type: "application/cloudevents+json" }));
@@ -13,14 +13,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use(`/customers`, customersRouter);
+app.use(`/`, notifyRouter);
 
-app.post("/dapr/subscribe/updateAccount", (req, res) => {
-  const cloudEvent = req.body;
-  const eventData = cloudEvent.data;
-  console.log("Received message on updateAccount:", eventData["accountId"]);
-  res.status(200).send("Received");
-});
-
+// app.post("/dapr/subscribe/notify", (req, res) => {
+//   const cloudEvent = req.body;
+//   const eventData = cloudEvent.data;
+//   console.log("Received message on updateAccount:", eventData["accountId"]);
+//   res.status(200).send("Received");
+// });
+// app.post("/dapr/subscribe/updateAccount", (req, res) => {
+//   const cloudEvent = req.body;
+//   const eventData = cloudEvent.data;
+//   console.log("Received message on updateAccount:", eventData["accountId"]);
+//   res.status(200).send("Received");
+// });
 transaction = {
   amount: 100.0,
   transaction_type: "TRANSFER",
@@ -42,10 +48,7 @@ async function sendSMS(customerPhoneNumber, transactionDetails) {
   };
 
   try {
-    await axios.post(
-      "http://localhost:3510/v1.0/bindings/twilio-binding",
-      smsPayload
-    );
+    await axios.post(process.env.dapr_bindings, smsPayload);
     console.log("SMS sent successfully");
   } catch (error) {
     console.error("Failed to send SMS:", error);

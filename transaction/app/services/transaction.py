@@ -5,12 +5,19 @@ from models.transaction import TransactionStatus
 from decimal import Decimal
 from typing import Optional
 import logging
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 class TransactionService:
     def __init__(self, db):
         self.db = db
         self.logger = logging.getLogger(__name__)
-        self.DAPR_STATE_URL = "http://localhost:3510/v1.0/state/statestore"
+        self.DAPR_STATE_URL =os.getenv("DAPR_STATE_URL")
+        self.ACCOUNT_SERVICE_URL=os.getenv("ACCOUNT_SERVICE_URL")
+        self.pubsub_URL_updateAccount=os.getenv("pubsub_URL_updateAccount")
+        self.pubsub_URL_notify=os.getenv("pubsub_URL_notify")
+
 
     async def add_transaction(self, account_id, transaction):
         account_key = f"account:{account_id}"
@@ -40,15 +47,15 @@ class TransactionService:
         
         if response.status_code == 200:
             transactions = response.json()
-            print(transactions)
+            
             return transactions if transactions else []
         else:
             self.logger.error(f"Failed to retrieve transactions: {response.status_code}")
             return []
 
     async def get_account(self, account_id: str):
-        ACCOUNT_SERVICE_URL = "http://localhost:3520/v1.0/invoke/accounting-service/method/account"
-        url = f"{ACCOUNT_SERVICE_URL}/{account_id}"
+        
+        url = f"{self.ACCOUNT_SERVICE_URL}/{account_id}"
         
         async with httpx.AsyncClient() as client:
             response = await client.get(url)
@@ -60,19 +67,20 @@ class TransactionService:
             else:
                 raise HTTPException(status_code=response.status_code, detail="Account not found")
     
-    async def update_account(self, account_id: str, account_data: dict):
-        pubsub_URL = "http://localhost:3520/v1.0/publish/pubsub/updateAccount"
+    async def update_account(self,notif:dict,account_data: dict):
         
         async with httpx.AsyncClient() as client:
-            response = await client.put(pubsub_URL, json=account_data)
+            response = await client.put(self.pubsub_URL_updateAccount, json=account_data)
+            response = await client.put(self.pubsub_URL_notify, json=notif)
             if response.status_code == 404:
                 raise HTTPException(status_code=404, detail="Account not found")
             elif response.status_code != 204:
                 raise HTTPException(status_code=response.status_code, detail="Failed to update account")
     
-    async def create_transaction_record(self, account_id: str, amount: Decimal, operation: str, transaction_type: str, status: TransactionStatus, session: Optional[any] = None):
+    async def create_transaction_record(self, customer_id:str,account_id: str, amount: Decimal, operation: str, transaction_type: str, status: TransactionStatus, session: Optional[any] = None):
         transaction_doc = {
-            "from_account": account_id,
+            "customer_id":customer_id,
+            "account_id": account_id,
             "amount": amount,
             "operation": operation,
             "transaction_type": transaction_type,
@@ -96,10 +104,9 @@ class TransactionService:
             )
         
         account["balance"] = new_balance
-        await self.update_account(account_id, account)
         
-        transaction_doc = await self.create_transaction_record(account_id, amount, operation, transaction_type, TransactionStatus.COMPLETED, session)
-        
+        transaction_doc = await self.create_transaction_record(account["customerId"],account_id, amount, operation, transaction_type, TransactionStatus.COMPLETED, session)
+        await self.update_account(transaction_doc, account)
         await self.add_transaction(account_id, transaction_doc)
 
     async def create_transaction(self, transaction_doc):
