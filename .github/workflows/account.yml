@@ -146,13 +146,14 @@ jobs:
           helm repo update
           helm install redis bitnami/redis --set auth.enabled=false
           sleep 10 # Wait for Redis to be deployed
-      - name: Apply pubsub and statestore configurations
-        run: |
-          kubectl apply -f ./account_service/k8s/daprconfig/pubsub.yml
-          kubectl apply -f ./account_service/k8s/daprconfig/subscription-notify.yaml
-          kubectl apply -f ./account_service/k8s/daprconfig/subscription-update-account.yaml
-          kubectl apply -f ./account_service/k8s/daprconfig/staetstore.yml
-          kubectl apply -f ./account_service/k8s/daprconfig/twilio-binding.yml
+      - name: apply zipkin with helm
+        run : |
+          helm repo add openzipkin https://openzipkin.github.io/zipkin
+          helm repo update
+          helm install zipkin openzipkin/zipkin
+
+      - name: Apply pubsub and statestoredapr config
+          kubectl apply -f ./account_service/k8s/daprconfig/
           sleep 10 # Wait for 1 minute
       #- name: Wait for Redis to be ready
       #  run: |
