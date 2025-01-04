@@ -1,9 +1,0 @@
-apiVersion: dapr.io/v1alpha1
-kind: Configuration
-metadata:
-  name: tracing-config
-spec:
-  tracing:
-    zipkin:
-      enabled: true
-      endpoint: "http://zipkin:9411/api/v2/spans"
