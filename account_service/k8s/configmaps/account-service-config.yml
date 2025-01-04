@@ -16,3 +16,6 @@ data:
   DAPR_APP_PORT: "8083"
   DAPR_HTTP_SERVICE: customer-service
   CUSTOMER_DAPR_URL: http://localhost:3500/v1.0/invoke/customer-service/method/customers/
+  # Zipkin-specific configuration
+  SPRING_ZIPKIN_BASE_URL: http://zipkin:9411
+  SPRING_SLEUTH_SAMPLER_PROBABILITY: "1.0"
