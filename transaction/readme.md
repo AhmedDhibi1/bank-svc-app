@@ -1,1 +1,1 @@
-testing Trivy
+testing Trivy3.2
