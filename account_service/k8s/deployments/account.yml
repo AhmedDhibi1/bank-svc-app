@@ -43,6 +43,10 @@ spec:
           ports:
             - containerPort: 8083
           env:
+            - name: DAPR_TRACING
+              value: "zipkin"
+            - name: DAPR_TRACING_ZIPKIN_ENDPOINT
+              value: "http://zipkin:9411/api/v2/spans"
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 configMapKeyRef:
