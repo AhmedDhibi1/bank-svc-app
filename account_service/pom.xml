@@ -16,8 +16,8 @@
 	<description>This microservice is for Account Management Service</description>
 
 	<properties>
-		<java.version>17</java.version>		<!-- Change to an LTS version -->
-		<spring-cloud.version>2022.0.1</spring-cloud.version>
+		<java.version>17</java.version>
+		<spring-cloud.version>2022.0.4</spring-cloud.version>		<!-- Use the same version -->
 	</properties>
 
 	<dependencies>
@@ -95,10 +95,7 @@
 
 	</dependencies>
 
-	<properties>
-		<java.version>17</java.version>
-		<spring-cloud.version>2022.0.4</spring-cloud.version>		<!-- Use the same version -->
-	</properties>
+	
 
 	<dependencyManagement>
 		<dependencies>
