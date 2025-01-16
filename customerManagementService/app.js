@@ -78,7 +78,7 @@ app.listen(process.env.APP_PORT, () =>
 );
 async function handleTransactionCompletion(transaction) {
   try {
-    await sendSMS("+21628803469", transaction);
+    await sendSMS("", transaction);
   } catch (error) {
     console.error("Error sending SMS:", error);
   }
